@@ -4,7 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Applications/tomcat/Webts/src/java/OutputServlet.java</file>
+            <file>file:/Applications/tomcat/Webts/src/java/model/TrxList.java</file>
             <file>file:/Applications/tomcat/Webts/web/inputJSP.html</file>
+            <file>file:/Applications/tomcat/Webts/src/java/model/Transaction_Journal.java</file>
+            <file>file:/Applications/tomcat/Webts/src/java/db.java</file>
+            <file>file:/Applications/tomcat/Webts/src/java/model/TrxReferences.java</file>
             <file>file:/Applications/tomcat/Webts/web/inputServlet.html</file>
             <file>file:/Applications/tomcat/Webts/web/FA_BillCo_DefaultPage.jsp</file>
         </group>

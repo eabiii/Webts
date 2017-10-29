@@ -9,6 +9,27 @@ package model;
  *
  * @author eabiii
  */
-public class Transaction_Journal {
+import java.io.*;
+import java.util.*;
+public class Transaction_Journal implements Serializable{
+    private int journalID;
+    public date trxDate;
+    public float trxAmt;
+    public float trxAmtPaid;
+    
+    public Transaction_Journal(){}
+    
+    public Transaction_Journal(int journalID){
+        this.journalID=journalID;
+    }
+    
+    public void setJournalID(int journalID){
+        this.journalID=journalID;
+    }
+    
+    public int getJournalID(){
+        return journalID;
+    }
+    
     
 }
