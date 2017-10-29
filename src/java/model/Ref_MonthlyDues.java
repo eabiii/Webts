@@ -9,6 +9,30 @@ package model;
  *
  * @author eabiii
  */
-public class Ref_MonthlyDues {
+import java.io.*;
+import java.util.*;
+public class Ref_MonthlyDues implements Serializable{
+    private int mDues;
+    public int startMonth;
+    public int startYear;
+    public int endMonth;
+    public int endYear;
+    public double amountApproved;
+    
+    public Ref_MonthlyDues(){}
+    
+    public Ref_MonthlyDues(int mDues){
+        this.mDues=mDues;
+    }
+    
+    public void setMDues(int mDues){
+        this.mDues=mDues;
+    }
+    
+    public int getMDues(){
+        return mDues;
+    }
+    
+    
     
 }
