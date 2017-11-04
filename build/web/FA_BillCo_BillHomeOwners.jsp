@@ -1,10 +1,3 @@
-<%-- 
-    Document   : FA_BillCo_BillHomeOwners
-    Created on : Nov 4, 2017, 10:06:25 PM
-    Author     : eabiii
---%>
-
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
