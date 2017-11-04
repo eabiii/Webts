@@ -4,18 +4,12 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class FA_005fBillCo_005fDefaultPage_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/header.jsp");
-    _jspx_dependants.add("/footer.jsp");
-  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -47,10 +41,6 @@ public final class FA_005fBillCo_005fDefaultPage_jsp extends org.apache.jasper.r
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -107,56 +97,6 @@ public final class FA_005fBillCo_005fDefaultPage_jsp extends org.apache.jasper.r
       out.write("</ul>\n");
       out.write("\n");
       out.write("</body>\n");
-      out.write("</html>\n");
-      out.write("\n");
-      out.write("  <div style=\"margin-left:30%;padding:1px 16px;height:500px;\">\n");
-      out.write("<br>\n");
-      out.write("<br>\n");
-      out.write("<br>\n");
-      out.write("  <h1>Welcome User!</h1>\n");
-      out.write("  <h2>Today is:  <h2 id=date></h2><h2 id=\"time\"></h2></h2>\n");
-      out.write("\n");
-      out.write("\t\t\n");
-      out.write("  \n");
-      out.write("    </div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write(" <div class=\"footer\">\n");
-      out.write("  <p>Footer</p>\n");
-      out.write("</div>\n");
-      out.write("\n");
-      out.write("</body>\n");
-      out.write("\n");
-      out.write("<script type=\"text/javascript\">\n");
-      out.write("        /*n =  new Date();\n");
-      out.write("\t\ty = n.getFullYear();\n");
-      out.write("\t\tm = n.getMonth() + 1;\n");
-      out.write("\t\td = n.getDate();\n");
-      out.write("\t\tdocument.getElementById(\"date\").innerHTML = m + \"/\" + d + \"/\" + y;\n");
-      out.write("\t\t*/\n");
-      out.write("\t\tvar d = new Date();\n");
-      out.write("\t\tdocument.getElementById(\"date\").innerHTML = d.toDateString();\n");
-      out.write("\t\t\n");
-      out.write("\t\t(function () {\n");
-      out.write("    function checkTime(i) {\n");
-      out.write("        return (i < 10) ? \"0\" + i : i;\n");
-      out.write("    }\n");
-      out.write("\n");
-      out.write("    function startTime() {\n");
-      out.write("        var today = new Date(),\n");
-      out.write("            h = checkTime(today.getHours()),\n");
-      out.write("            m = checkTime(today.getMinutes()),\n");
-      out.write("            s = checkTime(today.getSeconds());\n");
-      out.write("        document.getElementById('time').innerHTML = h + \":\" + m + \":\" + s;\n");
-      out.write("        t = setTimeout(function () {\n");
-      out.write("            startTime()\n");
-      out.write("        }, 500);\n");
-      out.write("    }\n");
-      out.write("    startTime();\n");
-      out.write("})();\n");
-      out.write("\t</script>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
