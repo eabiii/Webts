@@ -9,7 +9,22 @@
 <br>
   <h1>Welcome User!</h1>
   <h2>Today is:  <h2 id=date></h2><h2 id="time"></h2></h2>
-
+  <form action="addStudent" method="post">
+      
+      <div class="form-group">
+	<label>ID</label>
+	<input type="text" name="studentID" class="form-control" placeholder="new id" required autofocus>
+      </div>
+      <div class="form-group">
+	<label>ID</label>
+	<input type="text" name="name" class="form-control" placeholder="new name" required autofocus>
+      </div>
+      <div class="form-group">
+	<label>ID</label>
+	<input type="text" name="age" class="form-control" placeholder="new age" required autofocus>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
 		
   
     </div>
