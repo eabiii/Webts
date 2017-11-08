@@ -1,8 +1,4 @@
-<%-- 
-    Document   : header
-    Created on : Nov 3, 2017, 12:19:06 PM
-    Author     : eabiii
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,9 +26,9 @@
     <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Documents</a>
     <div class="dropdown-content">
-        		<a href="adminAddCustomer.php">Chesck</a>
-				<a href="adminRegisterVehicle.php">Vouchers</a>
-				<a href="adminCheckConfirmations.php">Receipts</a>
+        		<a href="FA_BillCo_Documents_Checks.jsp">Checks</a>
+				<a href="FA_BillCo_Documents_Vouchers.jsp">Vouchers</a>
+				<a href="FA_BillCo_Documents_Receipts .jsp">Receipts</a>
     </div>
   </li>
     <li class="dropdown">
@@ -46,7 +42,7 @@
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Transaction</a>
     <div class="dropdown-content">
-        		<a href="adminAddCustomer.php">Transaction Journal</a>
+        		<a href="FA_BillCo_TransactionJournal.jsp">Transaction Journal</a>
 
     </div>
   </li>
@@ -55,9 +51,11 @@
     <a href="javascript:void(0)" class="dropbtn">Billing</a>
     <div class="dropdown-content">
         		<a href="FA_BillCo_BillHomeOwners.jsp">Bill HomeOwners</a>
+                        <a href="FA_BillCo_NewHomeOwners.jsp">New HomeOwners</a>
 
     </div>
   </li>
+  <li><a href="FA_BillCo_DefaultPage.jsp">Dashboard</a></li>
 </ul>
 
 </body>
