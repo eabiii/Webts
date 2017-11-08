@@ -7,8 +7,8 @@
 <br>
 <br>
 <br>
-  <h1>Welcome User!</h1>
-  <h2>Today is:  <h2 id=date></h2><h2 id="time"></h2></h2>
+  <h1>New HomeOwner</h1>
+ 
   <form action="addStudent" method="post">
       
       <div class="form-group">
