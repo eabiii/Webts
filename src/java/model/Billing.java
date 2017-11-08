@@ -22,6 +22,10 @@ public class Billing implements Serializable{
     
     public Billing(){}
     
+    public Billing(int billingID, Ref_Properties blockNum, Ref_Properties lotNum, int precedentBilling,double totalDue,double totalPaid){
+    
+    }
+    
     public void setRef_Properties(Ref_Properties blockNum){this.}
     
 }

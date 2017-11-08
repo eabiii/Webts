@@ -13,12 +13,13 @@ package model;
  */
 import java.io.*;
 import java.util.*;
+import java.sql.Date;
 public class TrxReferences implements Serializable{
     private int trxID;
     public float amount;
     public float interest;
     public float totalAmount;
-    public date trxDate;
+    public Date trxDate;
     
     public TrxReferences(){}
     public TrxReferences(int trxID){

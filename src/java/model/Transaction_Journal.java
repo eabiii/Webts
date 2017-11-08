@@ -11,9 +11,10 @@ package model;
  */
 import java.io.*;
 import java.util.*;
+import java.sql.Date;
 public class Transaction_Journal implements Serializable{
     private int journalID;
-    public date trxDate;
+    public Date trxDate;
     public float trxAmt;
     public float trxAmtPaid;
     

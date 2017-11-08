@@ -40,7 +40,7 @@ public class HouseMonthlyDues implements Serializable{
         this.mdID=mdID;
     }
     
-    public MonthlyDues getLotNum(){
+    public MonthlyDues getMdID(){
         return mdID;
     }
     
@@ -48,7 +48,7 @@ public class HouseMonthlyDues implements Serializable{
         this.trxID=trxID;
     }
     
-    public TrxReferences getLotNum(){
+    public TrxReferences getTrxID(){
         return trxID;
     }
             
