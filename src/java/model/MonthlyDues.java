@@ -20,6 +20,18 @@ public class MonthlyDues implements Serializable{
     
     public MonthlyDues(){}
     
+    public MonthlyDues(int mdID, int month, int year, double amount, Ref_MonthlyDues mDues)
+    {
+        this.mdID=mdID;
+        this.month=month;
+        this.year=year;
+        this.amount=amount;
+        this.mDues=mDues;
+    }
+    
+        
+    
+    
     public void setMdID(int mdID){
         this.mdID=mdID;
     }

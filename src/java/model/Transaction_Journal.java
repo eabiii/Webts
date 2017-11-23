@@ -15,19 +15,25 @@ import java.sql.Date;
 public class Transaction_Journal implements Serializable{
     private int journalID;
     public Date trxDate;
-    public float trxAmt;
-    public float trxAmtPaid;
+    public double trxAmt;
+    public double trxAmtPaid;
     
     public Transaction_Journal(){}
     
-    public Transaction_Journal(int journalID){
+    public Transaction_Journal(int journalID, Date trxDate, double trxAmt, double trxAmtPaid){
         this.journalID=journalID;
+        this.trxDate=trxDate;
+        this.trxAmt=trxAmt;
+        this.trxAmtPaid=trxAmtPaid;
     }
     
     public void setJournalID(int journalID){
         this.journalID=journalID;
     }
-    
+    /**
+     * Gets the Journal ID
+     * @return 
+     */
     public int getJournalID(){
         return journalID;
     }

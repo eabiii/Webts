@@ -21,8 +21,14 @@ public class Ref_MonthlyDues implements Serializable{
     
     public Ref_MonthlyDues(){}
     
-    public Ref_MonthlyDues(int mDues){
+    public Ref_MonthlyDues(int mDues, int startMonth, int startYear, int endMonth, int endYear, double amountApproved){
         this.mDues=mDues;
+        this.startMonth=startMonth;
+        this.startYear=startYear;
+        this.endMonth=endMonth;
+        this.endYear=endYear;
+        this.amountApproved=amountApproved;
+        
     }
     
     public void setMDues(int mDues){

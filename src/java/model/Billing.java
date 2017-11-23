@@ -22,10 +22,24 @@ public class Billing implements Serializable{
     
     public Billing(){}
     
-    public Billing(int billingID, Ref_Properties blockNum, Ref_Properties lotNum, int precedentBilling,double totalDue,double totalPaid){
-    
+    public Billing(int billingID, Ref_Properties blockNum, Ref_Properties lotNum, int precedentBilling,double totalDue,double totalPaid)
+    {
+        this.billingID=billingID;
+        this.blockNum=blockNum;
+        this.lotNum=lotNum;
+        this.precedentBilling=precedentBilling;
+        this.totalDue=totalDue;
+        this.totalPaid=totalPaid;
     }
     
-    public void setRef_Properties(Ref_Properties blockNum){this.}
+    public void setBlockNum(Ref_Properties blockNum)
+    {
+        this.blockNum=blockNum;
+    }
+    
+    public Ref_Properties getBlockNum()
+    {
+        return blockNum;
+    }
     
 }

@@ -16,13 +16,16 @@ public class TrxList implements Serializable{
     
     protected Transaction_Journal journalID;
     protected TrxReferences trxID;
-    public float amountpaid;
+    public double amountpaid;
     
     public TrxList(){}
     
-    public TrxList(Transaction_Journal journalID,TrxReferences trxID){
+    public TrxList(Transaction_Journal journalID,TrxReferences trxID,double amountPaid)
+    {
         this.journalID=journalID;
         this.trxID=trxID;
+        this.amountpaid=amountPaid;
+        
     }
     public void setJournalID(Transaction_Journal journalID){
         this.journalID=journalID;

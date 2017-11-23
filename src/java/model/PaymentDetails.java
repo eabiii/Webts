@@ -13,5 +13,19 @@ import java.io.*;
 import java.util.*;
 public class PaymentDetails implements Serializable {
     
+    protected Billing billingID;
+    protected TrxList journalID;
+    protected TrxList trxID;
+    
+    public PaymentDetails(){}
+    
+    public PaymentDetails(Billing billingID, TrxList journalID,TrxList trxID)
+    {
+        this.billingID=billingID;
+        this.journalID=journalID;
+        this.trxID=trxID;
+    }
+    
+    
     
 }

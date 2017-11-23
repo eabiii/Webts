@@ -19,6 +19,16 @@ public class HouseMonthlyDues implements Serializable{
     
     public HouseMonthlyDues(){}
     
+    public HouseMonthlyDues(Ref_Properties blockNum,Ref_Properties lotNum,MonthlyDues mdID,TrxReferences trxID)
+    {
+        this.blockNum=blockNum;
+        this.lotNum=lotNum;
+        this.mdID=mdID;
+        this.trxID=trxID;
+    }
+    
+    
+    
     
      public void setBlockNum(Ref_Properties blockNum){
         this.blockNum=blockNum;
