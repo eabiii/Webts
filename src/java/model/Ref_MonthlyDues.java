@@ -21,6 +21,16 @@ public class Ref_MonthlyDues implements Serializable{
     
     public Ref_MonthlyDues(){}
     
+    /**
+     * Constructo for the Ref_MonthlyDues
+     * @param mDues
+     * @param startMonth
+     * @param startYear
+     * @param endMonth
+     * @param endYear
+     * @param amountApproved 
+     */
+    
     public Ref_MonthlyDues(int mDues, int startMonth, int startYear, int endMonth, int endYear, double amountApproved){
         this.mDues=mDues;
         this.startMonth=startMonth;
@@ -30,11 +40,19 @@ public class Ref_MonthlyDues implements Serializable{
         this.amountApproved=amountApproved;
         
     }
+    /**
+     * This method will set the value of mDues
+     * @param mDues 
+     */
     
     public void setMDues(int mDues){
         this.mDues=mDues;
     }
     
+    /**
+     * This method will return the value of blockNum
+     * @return blockNum
+     */
     public int getMDues(){
         return mDues;
     }

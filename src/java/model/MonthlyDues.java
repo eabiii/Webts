@@ -19,6 +19,15 @@ public class MonthlyDues implements Serializable{
     protected Ref_MonthlyDues mDues;
     
     public MonthlyDues(){}
+    /**
+     * Constructor for the MonthlyDues Model
+     * 
+     * @param mdID
+     * @param month
+     * @param year
+     * @param amount
+     * @param mDues 
+     */
     
     public MonthlyDues(int mdID, int month, int year, double amount, Ref_MonthlyDues mDues)
     {
@@ -30,19 +39,37 @@ public class MonthlyDues implements Serializable{
     }
     
         
-    
+    /**
+     * This method will set the value of MdID
+     * @param mdID 
+     */
     
     public void setMdID(int mdID){
         this.mdID=mdID;
     }
     
+    /**
+     * This method will return the value of blockNum
+     * @return 
+     */
+    
     public int getMdID(){
         return mdID;
     }
     
+    /**
+     * This method will set the value of month
+     * @param month 
+     */
+    
     public void setMonth(int month){
         this.month=month;
     }
+    
+    /**
+     * This method will set the value of Month
+     * @return 
+     */
     
     public int getMonth(){
         return month;
