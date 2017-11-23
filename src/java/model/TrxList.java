@@ -20,6 +20,12 @@ public class TrxList implements Serializable{
     
     public TrxList(){}
     
+    /**
+     * Constructor for the TrxList Model
+     * @param journalID
+     * @param trxID
+     * @param amountPaid 
+     */
     public TrxList(Transaction_Journal journalID,TrxReferences trxID,double amountPaid)
     {
         this.journalID=journalID;
@@ -27,18 +33,35 @@ public class TrxList implements Serializable{
         this.amountpaid=amountPaid;
         
     }
+    /**
+     * This method will set the value of journalID
+     * @param journalID 
+     */
+    
     public void setJournalID(Transaction_Journal journalID){
         this.journalID=journalID;
     }
     
+    /**
+     * This method will return the value of journalID
+     * @return 
+     */
     public Transaction_Journal getJournalID(){
         return journalID;
     }
     
+    /**
+     * This method will set the value of trxID
+     * @param trxID 
+     */
     public void setTrxID(TrxReferences trxID){
         this.trxID=trxID;
     }
     
+    /**
+     * This method will return the value of trxID
+     * @return 
+     */
     public TrxReferences getTrxID(){
         return trxID;
     }

@@ -20,6 +20,13 @@ public class Transaction_Journal implements Serializable{
     
     public Transaction_Journal(){}
     
+    /**
+     * Constructor for the Transaction_Journal Model
+     * @param journalID
+     * @param trxDate
+     * @param trxAmt
+     * @param trxAmtPaid 
+     */
     public Transaction_Journal(int journalID, Date trxDate, double trxAmt, double trxAmtPaid){
         this.journalID=journalID;
         this.trxDate=trxDate;
@@ -27,12 +34,16 @@ public class Transaction_Journal implements Serializable{
         this.trxAmtPaid=trxAmtPaid;
     }
     
+    /**
+     * This method will set the value of journalID
+     * @param journalID 
+     */
     public void setJournalID(int journalID){
         this.journalID=journalID;
     }
     /**
-     * Gets the Journal ID
-     * @return 
+     * This method will return the value of journalID
+     * @return journalID
      */
     public int getJournalID(){
         return journalID;
