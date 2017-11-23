@@ -14,6 +14,7 @@
  <ul>
     
   <li><a href="Login.html">Log Out</a></li>
+    <!--
     <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Reports</a>
     <div class="dropdown-content">
@@ -23,6 +24,9 @@
                                 <a href="adminCheckConfirmations.php">Statement of Retained Earnings</a>
     </div>
   </li>
+    -->
+    
+   <!--
     <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Documents</a>
     <div class="dropdown-content">
@@ -31,6 +35,10 @@
 				<a href="FA_BillCo_Documents_Receipts .jsp">Receipts</a>
     </div>
   </li>
+   
+   -->
+   
+   <!--
     <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">HomeOwners</a>
     <div class="dropdown-content">
@@ -39,6 +47,7 @@
 
     </div>
   </li>
+   -->
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Transaction</a>
     <div class="dropdown-content">

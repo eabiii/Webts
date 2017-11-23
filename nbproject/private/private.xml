@@ -23,6 +23,7 @@
             <file>file:/Applications/tomcat/Webts/src/java/model/Ref_MonthlyDues.java</file>
             <file>file:/Applications/tomcat/Webts/src/java/dao/Database.java</file>
             <file>file:/Applications/tomcat/Webts/web/FA_BillCo_BillHomeOwners_ViewDetails.jsp</file>
+            <file>file:/Applications/tomcat/Webts/src/java/model/BillingDetails.java</file>
             <file>file:/Applications/tomcat/Webts/src/java/model/TrxReferences.java</file>
             <file>file:/Applications/tomcat/Webts/src/java/servlet/addStudent.java</file>
             <file>file:/Applications/tomcat/Webts/src/java/servlet/addHomeOwner.java</file>
@@ -30,6 +31,7 @@
             <file>file:/Applications/tomcat/Webts/web/inputServlet.html</file>
             <file>file:/Applications/tomcat/Webts/web/FA_BillCo_DefaultPage.jsp</file>
             <file>file:/Applications/tomcat/Webts/web/FA_BillCo_TransactionJournal.jsp</file>
+            <file>file:/Applications/tomcat/Webts/src/java/model/PaymentDetails.java</file>
         </group>
     </open-files>
 </project-private>
