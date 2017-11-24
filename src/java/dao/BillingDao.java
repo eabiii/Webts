@@ -25,10 +25,24 @@ public class BillingDao {
             PreparedStatement pStmt=connect.prepareCall(sql);
         ResultSet rs=pStmt.executeQuery();
         while (rs.next()){
-            
+            billing.add(new Billing(rs.getInt(1),(rs.getInt(2),(rs.))));
         }
             
         }
+        
+                public static ArrayList<Billing>getBilling(Connection connect)throws SQLException{
+            ArrayList<Billing>billing=new ArrayList();
+            String sql="SELECT * FROM BILLING";
+            PreparedStatement pStmt=connect.prepareCall(sql);
+        ResultSet rs=pStmt.executeQuery();
+        while (rs.next()){
+            billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6)));
+        }
+        return billing;
+            
+        }
+        
+        
 
     
     
