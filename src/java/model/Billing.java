@@ -19,8 +19,8 @@ public class Billing implements Serializable{
      */
     
     private int billingID;
-    protected Ref_Properties blockNum;
-    protected Ref_Properties lotNum;
+    protected int blockNum;
+    protected int lotNum;
     private int precedentBilling;
     public double totalDue;
     public double totalPaid;
@@ -36,7 +36,7 @@ public class Billing implements Serializable{
      * @param totalDue
      * @param totalPaid 
      */
-    public Billing(int billingID, Ref_Properties blockNum, Ref_Properties lotNum, int precedentBilling,double totalDue,double totalPaid)
+    public Billing(int billingID, int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid)
     {
         this.billingID=billingID;
         this.blockNum=blockNum;
@@ -45,33 +45,55 @@ public class Billing implements Serializable{
         this.totalDue=totalDue;
         this.totalPaid=totalPaid;             
     }
+    public Billing(int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid)
+    {
+        this.blockNum=blockNum;
+        this.lotNum=lotNum;
+        this.precedentBilling=precedentBilling;
+        this.totalDue=totalDue;
+        this.totalPaid=totalPaid;             
+    }
     /**
-     * 
+     * This method will set the value of blockNum
      * @param blockNum 
      */
     
     
     
-    public void setBlockNum(Ref_Properties blockNum)
+    public void setBlockNum(int blockNum)
     {
         this.blockNum=blockNum;
            
     }
     /**
-     * This method sets the blockNum
+     * This method returns the value blockNum
      * 
-     * @param Ref_Properties
-     * @return 
+     * 
+     * @return blockNum 
      */
     
-    public Ref_Properties getBlockNum()
+    public int getBlockNum()
     {
         return blockNum;
     }
+    public void setLotNum(int lotNum)
+    {
+        this.lotNum=lotNum;
+           
+    }
     /**
-     * This method will get the value of blockNum
+     * This method returns the value blockNum
      * 
-     * @return BlockNum
+     * 
+     * @return blockNum 
      */
+    
+    public int getLotNum()
+    {
+        return lotNum;
+    }
+    
+    
+ 
     
 }
