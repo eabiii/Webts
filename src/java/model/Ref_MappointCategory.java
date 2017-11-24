@@ -17,7 +17,11 @@ public class Ref_MappointCategory {
     public String mappointcategory ;
     
     public Ref_MappointCategory(){}
-    
+    /**
+     * Constructor for the Ref_MappointCategory
+     * @param mappointcategoryID
+     * @param mappointcategory 
+     */
     public Ref_MappointCategory(int mappointcategoryID, String mappointcategory)
     {
         this.mappointcategoryID=mappointcategoryID;

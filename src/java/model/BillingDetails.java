@@ -30,7 +30,7 @@ public class BillingDetails implements Serializable{
         this.trxID=trxID;
     }
     /**
-     * This method sets the billing id
+     * This method will set the value of billingID
      * 
      * @param billingID 
      */
@@ -49,7 +49,7 @@ public class BillingDetails implements Serializable{
     }
     
     /**
-     * This method sets the trxID
+     * This method will set the value of trxID
      * 
      * @param trxID 
      */
