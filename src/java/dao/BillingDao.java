@@ -30,34 +30,100 @@ public class BillingDao {
           
         }
    */     
-        public static ArrayList<Billing>getBilling(Connection connect)throws SQLException{
+        public static ArrayList<Billing>getBilling()throws SQLException{
             ArrayList<Billing>billing=new ArrayList();
+            Connection connect=dbconnect.getDBConnection();
             String sql="SELECT * FROM BILLING";
-            PreparedStatement pStmt=connect.prepareCall(sql);
-        ResultSet rs=pStmt.executeQuery();
-        while (rs.next()){
-            billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6)));
-        }
-        return billing;
+            try
+            {
             
+            PreparedStatement pStmt=connect.prepareCall(sql);
+            ResultSet rs=pStmt.executeQuery();
+             while (rs.next()){
+                 billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6)));
+                 
+             }
+             System.out.println("good1");
+            }catch(Exception e){
+            
+                e.printStackTrace();
+            }finally
+            {
+                if(connect!=null)
+                { 
+                    try
+                    {
+                        connect.close();
+                    }catch(Exception e){}
+                }
+            }
+        return billing;
+        }
+        
+        
+        public static int getBillingID(int bid)
+        {
+            int bID=-1;
+            System.out.println("billid");
+            //Billing bill=null;
+            String sql="SELECT BILLINGID FROM BILLING WHERE BILLINGID = ?";
+            Connection c=dbconnect.getDBConnection();
+            
+            try
+            {
+                PreparedStatement p=c.prepareCall(sql);
+                p.setInt(1, bid);
+                ResultSet rs=p.executeQuery();
+                
+                while(rs.next())
+                {
+                    bID=rs.getInt(1);
+                   // bill=new Billing();
+                   // bill.setID(rs.getInt(1));
+                   // bill.setBlockNum(rs.getInt(2));
+                   // bill.setLotNum(rs.getInt(3));
+                    //bill.setTotalDue(rs.getInt(4));
+                                       //  System.out.println("billiswqd");
+                }
+                
+           }catch(Exception e){
+            
+                e.printStackTrace();
+            }finally
+            {
+                if(c!=null)
+                { 
+                    try
+                    {
+                        c.close();
+                    }catch(Exception e){}
+                }
+            }
+                                 System.out.println("The id "+bID);
+            return bID;
         }
         
         public static boolean addNewBill(Billing b)
         {
             boolean boo=false;
             Connection c=dbconnect.getDBConnection();
-            String sql ="INSERT INTO BILLING (BLOCKNUM,LOTNUM,TOTALDUE,TOTALPAID)VALUES(?,?,?,?)";
+            String sql ="INSERT INTO BILLING (BILLINGID,BLOCKNUM,LOTNUM,TOTALDUE,TOTALPAID)VALUES(?,?,?,?,?)";
             
             try{
             PreparedStatement p=c.prepareCall(sql);
-            ResultSet rs=p.executeQuery();
-            p.setInt(1, b.getBlockNum());
-             p.setInt(2, b.getLotNum());
-             p.setInt(3, (int) b.totalDue); 
-             p.setInt(4, (int) b.totalPaid); 
-            
+            p.setInt(1, b.getID());
+            p.setInt(2, b.getBlockNum());
+             p.setInt(3, b.getLotNum());
+             p.setDouble(4, b.getTotalDue()); 
+             p.setDouble(5,  b.getTotalPaid()); 
+             
+             int added=p.executeUpdate();
+             if(added!=0)
+             {
+                 boo=true;
+             }
             }catch(Exception e){
-            
+                boo=false;
                 e.printStackTrace();
             }
             return boo;

@@ -13,7 +13,7 @@ import java.io.*;
 import java.util.*;
 public class Billing implements Serializable{
     /**
-     * Billing Class model that
+     * 
      * 
      * 
      */
@@ -54,11 +54,47 @@ public class Billing implements Serializable{
         this.totalPaid=totalPaid;             
     }
     /**
-     * This method will set the value of blockNum
-     * @param blockNum 
+     * This method will set the value of billingID
+     * @param billingID 
      */
     
     
+    
+    public void setID(int billingID)
+    {
+        this.billingID=billingID;
+    }
+    
+    public int getID()
+    {
+        return billingID;
+    }
+    
+    
+    public void setTotalDue(double totalDue)
+    {
+        this.totalDue=totalDue;
+    }
+    
+    public double getTotalDue()
+    {
+            return totalDue;
+    }
+    
+    public void setTotalPaid(double totalPaid)
+    {
+        this.totalPaid=totalPaid;
+    }
+    
+    public double getTotalPaid()
+    {
+            return totalPaid;
+    }
+    
+    /**
+     * This method will set the value of blockNum
+     * @param blockNum 
+     */
     
     public void setBlockNum(int blockNum)
     {

@@ -63,15 +63,18 @@ public class addBills extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        int billID=Integer.parseInt(request.getParameter("billID"));
+        //int billID=Integer.parseInt(request.getParameter("billID"));
+        int billID=4;
         int blockNum=Integer.parseInt(request.getParameter("blockNum"));
         int lotNum=Integer.parseInt(request.getParameter("lotNum"));
-        double totalPaid=Double.parseDouble(request.getParameter("totalPaid"));
-        double totalDue=Double.parseDouble(request.getParameter("totalDue"));
+        //double totalPaid=Double.parseDouble(request.getParameter("totalPaid"));
+        //double totalDue=Double.parseDouble(request.getParameter("totalDue"));
+        double totalPaid=25.50;
+        double totalDue=75.50;
         Billing bill=new Billing(billID,blockNum,lotNum,billID,totalPaid,totalDue);
         if(BillingDao.addNewBill(bill))
         {
-            request.getRequestDispatcher("FA_BillCo_Documents_DefaultPage.jsp").forward(request, response);
+            request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
         }
         
     }
