@@ -60,8 +60,6 @@
     <a href="javascript:void(0)" class="dropbtn">Billing</a>
     <div class="dropdown-content">
         		<a href="FA_BillCo_BillHomeOwners.jsp">Bill HomeOwners</a>
-                        <a href="FA_BillCo_NewHomeOwners.jsp">New HomeOwners</a>
-
     </div>
   </li>
   <li><a href="FA_BillCo_DefaultPage.jsp">Dashboard</a></li>
