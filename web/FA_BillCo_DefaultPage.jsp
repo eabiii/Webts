@@ -1,8 +1,28 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="dao.BillingDao" %>
+<%@page import="model.Billing,dao.BillingDao,dao.dbconnect,java.util.ArrayList" %>
+<%
+ArrayList<Billing>bill=BillingDao.getBilling(dbconnect.getDBConnection());
+
+%>
 <!DOCTYPE html>
 <%@include file="header.jsp" %>
+ <style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f2f3f3}
+</style>
   <div style="margin-left:30%;padding:1px 16px;height:500px;">
 <br>
 <br>
@@ -25,9 +45,26 @@
       </div>
       <input type="submit" class="btn btn-primary" value="Submit">
   </form>
+
 		
   
     </div>
+    <table>
+  <tr>
+   <th><center>Block Number</th>
+      <th><center>Lot Number</th>    
+   <th><center>Pay Date</th>
+   <th><center>Amount</th>
+   <th><center> </th>
+
+  </tr>
+  <tr>
+<%  for(Billing b:bill){    %>
+<td><%=b.getBlockNum()%></td>
+<td><%=b.getLotNum()%></td>
+<td><%=b.totalDue%></td>
+<%}%>
+  </table>
 <%@include file="footer.jsp" %>
 </body>
 
