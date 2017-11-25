@@ -35,30 +35,8 @@ tr:hover{background-color:#f2f3f3}
 	</div>
 </div><!-- /.row -->
 <% } %>
-<center><h1>Welcome User!</h1></center>
-    <center>  <h2>Today is:  <h2 id=date></h2><h2 id="time"></h2></h2></center>
-    <div style="padding:1px 16px;height:500px;">
-     <form action="addBills" method="POST">
-         
-        <b><p>Block No:</p></b>
-        <input type="number" id="bln" min="1"  name="blockNum" placeholder="Block" required>
-        <b><p>Lot No:</p></b>
-        <input type="number" id="lno" min="1"  name="lotNum" placeholder="Lot" required>
-        <b><p>Description:</b></p>
-        <input type="text" name="desc" class="form-control" placeholder="Description" required autofocus>
-        <b><p>Amount:</b></p>
-        <input type="number" step="any" min="0" id="amt" name="totalDue" placeholder="totalDue" onchange="filters()" required >
-      <!--  <b><p>Interest:</b></p>
-        <input type="number" step="any" min="0" id="inter" name="inter" placeholder="Interest" onchange="filters()" required >
-     
-        <b><p>Total Amount:</b></p>
-        <input type="number" min="0" id="totalamt" name="totalDue" placeholder="0" autofocus readonly>
-        <b><p>Total Paid</b></p>
-        <input type="number" min="0" step="any" id="pay" name="totalPaid" placeholder="0" autofocus >
-       -->
-        <input type="submit" id="addb" value="Add Bill">
-        </form>
-    </div>
+<center><h1>View Bill User!</h1></center>
+
     
     <script>
         function filters()

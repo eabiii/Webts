@@ -13,7 +13,7 @@ package model;
  */
 import java.io.*;
 import java.util.*;
-import java.sql.Date;
+
 public class TrxReferences implements Serializable{
     private int trxID;
     public double amount;
@@ -54,5 +54,54 @@ public class TrxReferences implements Serializable{
     public int getTrxID(){
         return trxID;
     }
+    public void setAmount(int amount){
+        this.amount=amount;
+    }
+    
+    /**
+     * This method will get the value of trxID
+     * @return 
+     */
+    public double getAmount(){
+        return amount;
+    }
+    
+    public void setTotalAmount(double totalAmount){
+        this.totalAmount=totalAmount;
+    }
+    
+    /**
+     * This method will get the value of trxID
+     * @return 
+     */
+    public double getTotalAmount(){
+        return totalAmount;
+    }
+    
+     public void setInterest(int interest){
+        this.interest=interest;
+    }
+    
+    /**
+     * This method will get the value of trxID
+     * @return 
+     */
+    public double getInterest(){
+        return interest;
+    }
+    
+     public void setDate(Date trxDate){
+        this.trxDate=trxDate;
+    }
+    
+    /**
+     * This method will get the value of trxID
+     * @return 
+     */
+    public Date getDate(){
+        return trxDate;
+    }
+    
+   
     
 }

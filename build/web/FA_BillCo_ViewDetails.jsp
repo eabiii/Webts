@@ -1,11 +1,12 @@
 
 
+<%@page import="model.TrxReferences"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.BillingDao" %>
-<%@page import="model.Billing,dao.BillingDao,dao.dbconnect,java.util.ArrayList" %>
+<%@page import="model.Billing,model.PaymentDetails,dao.BillingDao,dao.dbconnect,java.util.ArrayList" %>
 <%
     Billing bill=(Billing)request.getAttribute("bill");
-    
+    TrxReferences p=(TrxReferences)request.getAttribute("pay");
 
 %>
 <!DOCTYPE html>
@@ -29,24 +30,60 @@ tr:hover{background-color:#f2f3f3}
 <br>
 <br>
   <h1>Billing Details</h1>
-  <h2>Today is:  <h2 id=date></h2><h2 id="time"></h2></h2>
-  <form action="addStudent" method="post">
+  <form action="updateBill" method="post">
       
       <div class="form-group">
-	<label><%=bill.getID()%></label>
-	<input type="text" name="studentID" class="form-control" placeholder="new id" required autofocus>
-      </div>
-      <div class="form-group">
-	<label>ID</label>
-	<input type="text" name="name" class="form-control" placeholder="new name" required autofocus>
-      </div>
-      <div class="form-group">
-	<label>ID</label>
-	<input type="text" name="age" class="form-control" placeholder="new age" required autofocus>
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit">
-  </form>
+	<label>Block Number:<%=bill.getBlockNum()%></label>
 
+      </div>
+      <div class="form-group">
+	<label>Lot Number:<%=bill.getLotNum()%></label>
+      </div>
+      <div class="form-group">
+	<label>Description of Payment:<%=bill.getDesc()%></label>
+      </div>
+      <div class="form-group">
+	<label>Amount: </label>
+        <input type="number" step="any" min="0" id="amt" name="amount" value="<%=bill.getTotalDue()%>" placeholder="<%=bill.getTotalDue()%>" onchange="filters()" readonly >
+
+      </div>
+      <div class="form-group">
+	<label>Interest</label>
+                <input type="number" step="any" min="0" id="inter" name="interest" placeholder="totalDue" onchange="filters()" required >
+
+      </div>
+        <div class="form-group">
+	<label>Current Status:<%=bill.getStatus()%></label>
+<select name="status">
+        <option value="Pending">Pending
+        <option value="Paid">Paid
+        <option value="Overdue">Overdue
+    </select>
+      </div>
+    
+       <div class="form-group">
+	<label>Total Amount: </label>
+        <input type="hidden" name="billId" value="<%=bill.getID()%>">
+                <input type="number" min="0" id="totalamt" name="totalAmount" placeholder="0" autofocus readonly>
+ <input type="submit" id="addb" value="Add Bill">
+      </div>
+  </form>
+ <script>
+        function filters()
+        {
+            var input,filter,interest, filter2,total;
+            input=document.getElementById("amt").value;
+            filter =input.value;
+            interest=document.getElementById("inter").value;
+            filter2=interest.value;
+            total=document.getElementById("totalamt");
+            total.value=parseFloat(input);
+            total.value=parseFloat(input)+parseFloat(interest);
+            
+            
+        }
+        
+    </script>
 		
   
     </div>
@@ -66,8 +103,15 @@ tr:hover{background-color:#f2f3f3}
 <td><center><%=bill.totalDue%></td>
 <td><center><%=bill.totalPaid%></td>
 <td><center><a href="FA_BillCo_ViewDetails?id=<%=bill.getID()%>"><input type="button" class="btn btn-primary" value="View"></a></td>
-
+</tr>
 <%%>
+<tr>
+   <td><center><%=bill.getBlockNum()%></td>
+<td><center><%=p.getTrxID()%></td>
+<td><center><%=p.getDate()%></td>
+<td><center><%=p.getInterest()%></td> 
+    
+</tr>
   </table>
 <%@include file="footer.jsp" %>
 </body>

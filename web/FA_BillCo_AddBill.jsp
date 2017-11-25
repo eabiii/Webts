@@ -23,6 +23,8 @@ th, td {
 
 tr:hover{background-color:#f2f3f3}
 </style>
+  <div style="margin-left:30%;padding:1px 16px;height:500px;">
+
 <br>
 <br>
 <br>
@@ -35,9 +37,9 @@ tr:hover{background-color:#f2f3f3}
 	</div>
 </div><!-- /.row -->
 <% } %>
-<center><h1>Welcome User!</h1></center>
-    <center>  <h2>Today is:  <h2 id=date></h2><h2 id="time"></h2></h2></center>
+
     <div style="padding:1px 16px;height:500px;">
+        <h1>Add Bill</h1>
      <form action="addBills" method="POST">
          
         <b><p>Block No:</p></b>
@@ -76,29 +78,7 @@ tr:hover{background-color:#f2f3f3}
         }
         
     </script>
-    <div>
-    <table>
-  <tr>
-   <th><center>Block Number</th>
-      <th><center>Lot Number</th>    
-   <th><center>Description</th>
-   <th><center>Amount</th>
-   <th><center>Status</th> 
-   <th><center></th>
-
-  </tr>
-  <tr>
-<%  for(Billing b:bill){    %>
-<td><center><%=b.getBlockNum()%></td>
-<td><center><%=b.getLotNum()%></td>
-<td><center><%=b.getDesc()%></td>
-<td><center><%=b.getTotalDue()%></td>
-<td><center><%=b.getStatus()%></td>
-<td><center><a href="viewBills?id=<%=b.getID()%>"><input type="button" class="btn btn-primary" value="View"></a></td>
-</tr>
-<%}%>
-  </table>
-</div>
+  </div>
 </body>
 
 <script type="text/javascript">

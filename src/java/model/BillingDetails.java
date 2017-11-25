@@ -16,8 +16,9 @@ public class BillingDetails implements Serializable{
      * Billing Details Model
      * 
      */
-    protected Billing billingID;
-    protected TrxReferences trxID;
+    protected int billingID;
+    protected int trxID;
+    public String status;
     
     public BillingDetails(){}
     /**
@@ -25,9 +26,14 @@ public class BillingDetails implements Serializable{
      * @param billingID
      * @param trxID 
      */
-    public BillingDetails(Billing billingID, TrxReferences trxID){
+    public BillingDetails(int billingID, int trxID){
         this.billingID=billingID;
         this.trxID=trxID;
+    }
+        public BillingDetails(int billingID, int trxID,String status){
+        this.billingID=billingID;
+        this.trxID=trxID;
+        this.status=status;
     }
     /**
      * This method will set the value of billingID
@@ -35,7 +41,7 @@ public class BillingDetails implements Serializable{
      * @param billingID 
      */
     
-    public void setBillingID(Billing billingID){
+    public void setBillingID(int billingID){
         this.billingID=billingID;
     }
     /**
@@ -44,7 +50,7 @@ public class BillingDetails implements Serializable{
      * @return  
      */
     
-    public Billing getBillingID(){
+    public int getBillingID(){
         return billingID;
     }
     
@@ -55,7 +61,7 @@ public class BillingDetails implements Serializable{
      */
     
     
-    public void setTrxID(TrxReferences trxID){
+    public void setTrxID(int trxID){
         this.trxID=trxID;
     }
     
@@ -65,8 +71,22 @@ public class BillingDetails implements Serializable{
      * @return trxID
      */
     
-    public TrxReferences getTrxID(){
+    public int getTrxID(){
         return trxID;
+    }
+    
+    public void setStatus(String status){
+        this.status=status;
+    }
+    
+    /**
+     * This method returns trxID
+     * 
+     * @return trxID
+     */
+    
+    public String getStatus(){
+        return status;
     }
     
 }

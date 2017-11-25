@@ -6,29 +6,21 @@
 package servlet;
 
 import dao.BillingDao;
-import dao.TransactionDao;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Billing;
-import model.TrxReferences;
-import java.util.Date;
+
 /**
  *
  * @author eabiii
  */
-@WebServlet(name = "addBills", urlPatterns = {"/addBills"})
-public class addBills extends HttpServlet {
-private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+@WebServlet(name = "updateBill", urlPatterns = {"/updateBill"})
+public class updateBill extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,7 +32,8 @@ private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,45 +60,18 @@ private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"
      * @throws IOException if an I/O error occurs
      */
     @Override
-    /**
-     * This will execute the add bill by using the POST method
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        //int billID=Integer.parseInt(request.getParameter("billID"));
-        int billID=6;
-        int blockNum=Integer.parseInt(request.getParameter("blockNum"));
-        int lotNum=Integer.parseInt(request.getParameter("lotNum"));
-       // double amount=Double.parseDouble(request.getParameter("amt"));
-        //double interest=Double.parseDouble(request.getParameter("inter"));   
-        //double totalPaid=Double.parseDouble(request.getParameter("totalPaid"));
-        double totalDue=Double.parseDouble(request.getParameter("totalDue"));
-        String desc=request.getParameter("desc");
-        System.out.println("My desc is" +desc);
-           
-         //   request.setAttribute("msg", "Total Paid not equal to Total Amount");
-         // request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
-
+        int billID=Integer.parseInt(request.getParameter("billId"));
+        String status=request.getParameter("status");
+        double interest=Double.parseDouble(request.getParameter("interest")); 
+        double total=Double.parseDouble(request.getParameter("totalAmount")); 
         
-        Billing bill=new Billing(billID,blockNum,lotNum,billID,totalDue,0,desc,"Pending");
-        if(BillingDao.addNewBill(bill))
+        if(BillingDao.updateBill(billID, total, interest, status))
         {
-            /*
-            Calendar cal = Calendar.getInstance();
-            cal.clear(Calendar.HOUR_OF_DAY);
-            cal.clear(Calendar.AM_PM);
-            cal.clear(Calendar.MINUTE);
-            cal.clear(Calendar.SECOND);
-            cal.clear(Calendar.MILLISECOND);
-            Date d=cal.getTime();
-            int id=TransactionDao.getMaxTrxID()+1;
-            TrxReferences trx=new TrxReferences(id,amount,interest,totalDue,d); 
-            */
-          //  if(TransactionDao.addTransactionReference(trx)){
-            //System.out.println("My id is" +id);
-            request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
-           // }
+           request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
+
         }
         
     }

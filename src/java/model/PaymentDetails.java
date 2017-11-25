@@ -13,9 +13,9 @@ import java.io.*;
 import java.util.*;
 public class PaymentDetails implements Serializable {
     
-    protected Billing billingID;
-    protected TrxList journalID;
-    protected TrxList trxID;
+    protected int billingID;
+    protected int journalID;
+    protected int trxID;
     
     public PaymentDetails(){}
     /**
@@ -24,7 +24,7 @@ public class PaymentDetails implements Serializable {
      * @param journalID
      * @param trxID 
      */
-    public PaymentDetails(Billing billingID, TrxList journalID,TrxList trxID)
+    public PaymentDetails(int billingID, int journalID,int trxID)
     {
         this.billingID=billingID;
         this.journalID=journalID;
@@ -34,7 +34,7 @@ public class PaymentDetails implements Serializable {
      * This method will set the value of billingID
      * @param billingID 
      */
-    public void setBillingID(Billing billingID)
+    public void setBillingID(int billingID)
     {
         this.billingID=billingID;
     }
@@ -42,7 +42,7 @@ public class PaymentDetails implements Serializable {
      * This method will return the value of billingID
      * @return billingID
      */
-    public Billing getBillingID()
+    public int getBillingID()
     {
         return billingID;
     }
@@ -50,7 +50,7 @@ public class PaymentDetails implements Serializable {
      * This method will set the value of journalID
      * @param journalID 
      */
-    public void setJournalID(TrxList journalID)
+    public void setJournalID(int journalID)
     {
         this.journalID=journalID;
     }
@@ -59,7 +59,7 @@ public class PaymentDetails implements Serializable {
      * @return journalID
      */
     
-    public TrxList getJournalID()
+    public int getJournalID()
     {
         return journalID;
     }
@@ -68,7 +68,7 @@ public class PaymentDetails implements Serializable {
      * This method will set the value of trxID
      * @param trxID 
      */
-    public void setTrxID(TrxList trxID)
+    public void setTrxID(int trxID)
     {
         this.trxID=trxID;
     }
@@ -77,7 +77,7 @@ public class PaymentDetails implements Serializable {
      * This method will get the value of blockNum
      * @return 
      */
-    public TrxList getTrxID()
+    public int getTrxID()
     {
         return trxID;
     }

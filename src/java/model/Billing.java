@@ -24,6 +24,8 @@ public class Billing implements Serializable{
     private int precedentBilling;
     public double totalDue;
     public double totalPaid;
+    public String desc;
+    public String status;
     
     public Billing(){}
     /**
@@ -45,6 +47,19 @@ public class Billing implements Serializable{
         this.totalDue=totalDue;
         this.totalPaid=totalPaid;             
     }
+    
+    public Billing(int billingID, int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid,String desc,String status)
+    {
+        this.billingID=billingID;
+        this.blockNum=blockNum;
+        this.lotNum=lotNum;
+        this.precedentBilling=precedentBilling;
+        this.totalDue=totalDue;
+        this.totalPaid=totalPaid;  
+        this.desc=desc;
+        this.status=status;
+    }
+    
     public Billing(int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid)
     {
         this.blockNum=blockNum;
@@ -64,6 +79,10 @@ public class Billing implements Serializable{
     {
         this.billingID=billingID;
     }
+    /**
+     *  This method will set the value of billingID
+     * @return billingID
+     */
     
     public int getID()
     {
@@ -128,8 +147,25 @@ public class Billing implements Serializable{
     {
         return lotNum;
     }
+     public void setDesc(String desc)
+     {
+         this.desc=desc;
+     }
+     
+     public String getDesc()
+     {
+         return desc;
+     }
     
-    
+     public void setStatus(String status)
+     {
+         this.status=status;
+     }
+     
+     public String getStatus()
+     {
+         return status;
+     }
  
     
 }

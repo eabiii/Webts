@@ -11,7 +11,7 @@ package dao;
  */
 import java.util.*;
 import java.sql.*;
-import model.Billing;
+import model.*;
 public class BillingDao {
     /*
         public static ArrayList<Billing>getAllBilling(Connection connect)throws SQLException{
@@ -40,7 +40,7 @@ public class BillingDao {
             PreparedStatement pStmt=connect.prepareCall(sql);
             ResultSet rs=pStmt.executeQuery();
              while (rs.next()){
-                 billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6)));
+                 billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6),rs.getString(7),rs.getString(8)));
                  
              }
              System.out.println("good1");
@@ -61,6 +61,8 @@ public class BillingDao {
         }
         
         
+        
+        
         public static int getBillingID(int bid)
         {
             int bID=-1;
@@ -73,6 +75,97 @@ public class BillingDao {
             {
                 PreparedStatement p=c.prepareCall(sql);
                 p.setInt(1, bid);
+                ResultSet rs=p.executeQuery();
+                
+                while(rs.next())
+                {
+                    bID=rs.getInt(1);
+
+                }
+                
+           }catch(Exception e){
+            
+                e.printStackTrace();
+            }finally
+            {
+                if(c!=null)
+                { 
+                    try
+                    {
+                        c.close();
+                    }catch(Exception e){}
+                }
+            }
+                                 System.out.println("The id "+bID);
+            return bID;
+        }
+        /**
+         * Add a new bill to the database
+         * @param b
+         * @return 
+         */
+        public static boolean addNewBill(Billing b)
+        {
+            boolean boo=false;
+            Connection c=dbconnect.getDBConnection();
+            String sql ="INSERT INTO BILLING (BILLINGID,BLOCKNUM,LOTNUM,TOTALDUE,TOTALPAID,DESCRIPTION,STATUS)VALUES(?,?,?,?,?,?,?)";
+            
+            try{
+                int id=BillingDao.getMaxID()+1;
+            PreparedStatement p=c.prepareCall(sql);
+            p.setInt(1, id);
+            p.setInt(2, b.getBlockNum());
+             p.setInt(3, b.getLotNum());
+             p.setDouble(4, b.getTotalDue()); 
+             p.setDouble(5,  b.getTotalPaid()); 
+             p.setString(6, b.getDesc());
+             p.setString(7, b.getStatus());
+             int added=p.executeUpdate();
+             if(added!=0)
+             {
+                 boo=true;
+             }
+            }catch(Exception e){
+                boo=false;
+                e.printStackTrace();
+            }
+            
+            
+            
+            return boo;
+        }
+        
+        public static boolean updateBill(int id, double total,double interest,String status)
+        {
+            boolean boo=false;
+            Connection c=dbconnect.getDBConnection();
+            String sql ="UPDATE BILLING SET TOTALPAID=?, STATUS=? WHERE BILLINGID=? ";
+            try{
+            PreparedStatement p=c.prepareCall(sql);
+            p.setDouble(1, total);
+            p.setString(2, status);
+             p.setInt(3,  id); 
+             
+             int added=p.executeUpdate();
+             if(added!=0)
+             {
+                 boo=true;
+             }
+            }catch(Exception e){
+                boo=false;
+                e.printStackTrace();
+            }
+            return boo;
+            
+        }
+        public static int getMaxID()
+    {
+         int bID=-1;
+        String sql="SELECT max(billingID)  FROM Billing";
+        Connection c=dbconnect.getDBConnection();
+          try
+            {
+                PreparedStatement p=c.prepareCall(sql);
                 ResultSet rs=p.executeQuery();
                 
                 while(rs.next())
@@ -101,34 +194,7 @@ public class BillingDao {
             }
                                  System.out.println("The id "+bID);
             return bID;
-        }
-        
-        public static boolean addNewBill(Billing b)
-        {
-            boolean boo=false;
-            Connection c=dbconnect.getDBConnection();
-            String sql ="INSERT INTO BILLING (BILLINGID,BLOCKNUM,LOTNUM,TOTALDUE,TOTALPAID)VALUES(?,?,?,?,?)";
-            
-            try{
-            PreparedStatement p=c.prepareCall(sql);
-            p.setInt(1, b.getID());
-            p.setInt(2, b.getBlockNum());
-             p.setInt(3, b.getLotNum());
-             p.setDouble(4, b.getTotalDue()); 
-             p.setDouble(5,  b.getTotalPaid()); 
-             
-             int added=p.executeUpdate();
-             if(added!=0)
-             {
-                 boo=true;
-             }
-            }catch(Exception e){
-                boo=false;
-                e.printStackTrace();
-            }
-            return boo;
-        }
-        
+    }
         
 
     
