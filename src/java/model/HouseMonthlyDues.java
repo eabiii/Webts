@@ -12,10 +12,10 @@ package model;
 import java.io.*;
 import java.util.*;
 public class HouseMonthlyDues implements Serializable{
-    protected Ref_Properties blockNum;
-    protected Ref_Properties lotNum;
-    protected MonthlyDues mdID;
-    protected TrxReferences trxID;
+    protected int  blockNum;
+    protected int lotNum;
+    protected int mdID;
+    protected int trxID;
     
     public HouseMonthlyDues(){}
     
@@ -28,7 +28,7 @@ public class HouseMonthlyDues implements Serializable{
      * @param trxID transaction id
      */
     
-    public HouseMonthlyDues(Ref_Properties blockNum,Ref_Properties lotNum,MonthlyDues mdID,TrxReferences trxID)
+    public HouseMonthlyDues(int blockNum,int lotNum,int mdID,int trxID)
     {
         this.blockNum=blockNum;
         this.lotNum=lotNum;
@@ -42,7 +42,7 @@ public class HouseMonthlyDues implements Serializable{
      * @param blockNum 
      */
     
-     public void setBlockNum(Ref_Properties blockNum){
+     public void setBlockNum(int blockNum){
         this.blockNum=blockNum;
     }
      /**
@@ -50,7 +50,7 @@ public class HouseMonthlyDues implements Serializable{
       * @return blockNum
       */
     
-    public Ref_Properties getBlockNum(){
+    public int getBlockNum(){
         return blockNum;
     }
     
@@ -59,7 +59,7 @@ public class HouseMonthlyDues implements Serializable{
      * @param lotNum 
      */
     
-    public void setLotNum(Ref_Properties lotNum){
+    public void setLotNum(int lotNum){
         this.lotNum=lotNum;
     }
     
@@ -68,7 +68,7 @@ public class HouseMonthlyDues implements Serializable{
      * @return lotNum
      */
     
-    public Ref_Properties getLotNum(){
+    public int getLotNum(){
         return lotNum;
     }
     /**
@@ -76,7 +76,7 @@ public class HouseMonthlyDues implements Serializable{
      * @param mdID 
      */
     
-    public void setMdID(MonthlyDues mdID){
+    public void setMdID(int mdID){
         this.mdID=mdID;
     }
     /**
@@ -84,7 +84,7 @@ public class HouseMonthlyDues implements Serializable{
      * @return 
      */
     
-    public MonthlyDues getMdID(){
+    public int getMdID(){
         return mdID;
     }
     /**
@@ -92,7 +92,7 @@ public class HouseMonthlyDues implements Serializable{
      * @param trxID 
      */
     
-    public void setTrxID(TrxReferences trxID){
+    public void setTrxID(int trxID){
         this.trxID=trxID;
     }
     
@@ -101,7 +101,7 @@ public class HouseMonthlyDues implements Serializable{
      * @return 
      */
     
-    public TrxReferences getTrxID(){
+    public int getTrxID(){
         return trxID;
     }
             

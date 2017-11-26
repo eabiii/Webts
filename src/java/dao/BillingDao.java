@@ -97,12 +97,49 @@ public class BillingDao {
          * @return ArrayList Billing
          * @throws SQLException 
          */
+       
         
         
         public static ArrayList<Billing>getBilling()throws SQLException{
             ArrayList<Billing>billing=new ArrayList();
             Connection connect=dbconnect.getDBConnection();
             String sql="SELECT * FROM BILLING";
+            try
+            {
+            
+            PreparedStatement pStmt=connect.prepareCall(sql);
+            ResultSet rs=pStmt.executeQuery();
+             while (rs.next()){
+                 billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6),rs.getString(7),rs.getString(8)));
+                 
+             }
+             System.out.println("good1");
+            }catch(Exception e){
+            
+                e.printStackTrace();
+            }finally
+            {
+                if(connect!=null)
+                { 
+                    try
+                    {
+                        connect.close();
+                    }catch(Exception e){}
+                }
+            }
+        return billing;
+        }
+        
+        public static ArrayList<Billing>getBillingCondition()throws SQLException
+        {
+            ArrayList<Billing>billing=new ArrayList();
+            Connection connect=dbconnect.getDBConnection();
+            String sql="select billing.blocknum, billing.lotnum,billing.description,trxreferences.amount,trxReferences.txnDate\n" +
+                        "from trxReferences\n" +
+                        "join BILLINGDETAILS\n" +
+                        "on trxreferences.trxID=billingdetails.billingID\n" +
+                        "join billing \n" +
+                        "on billingdetails.billingID=billing.billingID;";
             try
             {
             

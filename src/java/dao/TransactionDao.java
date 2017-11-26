@@ -77,6 +77,35 @@ public class TransactionDao {
             }
             return boo;
     }
+    
+    public static boolean addHouseMonthlyBill(HouseMonthlyDues h)
+    {
+        boolean boo=false;
+            Connection c=dbconnect.getDBConnection();
+            String sql ="INSERT INTO HouseMonthlyDues (Blocknum,lotnum,mdid,trxid)VALUES(?,?,?,?)";
+            
+            try{
+            PreparedStatement p=c.prepareCall(sql);
+            p.setInt(1, h.getBlockNum());
+            p.setDouble(2, h.getLotNum());
+             p.setDouble(3, h.getMdID());
+             p.setDouble(4, h.getTrxID()); 
+              //java.sql.Date sqlDate = new java.sql.Date(tx.getDate().getTime());
+            // p.setDate(5,  sqlDate); 
+             
+             int added=p.executeUpdate();
+             if(added!=0)
+             {
+                 boo=true;
+             }
+            }catch(Exception e){
+                boo=false;
+                e.printStackTrace();
+            }
+            return boo;
+    
+    }
+    
     /**
      * This method adds to the TrxList table
      * @param tl
@@ -533,6 +562,8 @@ public class TransactionDao {
             }
         return p;
     }
+    
+    
     
     
 }

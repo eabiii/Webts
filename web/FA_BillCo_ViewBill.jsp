@@ -1,10 +1,15 @@
 
 
+<%@page import="model.BillingDetails"%>
+<%@page import="model.TrxReferences"%>
+<%@page import="dao.TransactionDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.BillingDao" %>
 <%@page import="model.Billing,dao.BillingDao,dao.dbconnect,java.util.ArrayList" %>
 <%
 ArrayList<Billing>bill=BillingDao.getBilling();
+ArrayList<TrxReferences>tx=TransactionDao.getTransactionReferences();
+ArrayList<BillingDetails>bd=BillingDao.getDetails();
 String msg = (String) request.getAttribute("msg");
 %>
 <!DOCTYPE html>
@@ -69,19 +74,29 @@ tr:hover{background-color:#f2f3f3}
    <th><center>Description</th>
    <th><center>Amount</th>
    <th><center>Status</th> 
+   <th><center>Date</th> 
    <th><center></th>
 
   </tr>
   <tr>
-<%  for(Billing b:bill){    %>
+<%  for(Billing b:bill){ 
+    
+
+       for(TrxReferences t:tx){
+           
+       for(BillingDetails bi:bd){
+           if(b.getID()==bi.getBillingID() &&t.getTrxID()==bi.getTrxID()){
+       
+%>
 <td><center><%=b.getBlockNum()%></td>
 <td><center><%=b.getLotNum()%></td>
 <td><center><%=b.getDesc()%></td>
 <td><center><%=b.getTotalDue()%></td>
 <td><center><%=b.getStatus()%></td>
+<td><center><%=t.getDate()%></td>
 <td><center><a href="viewBills?id=<%=b.getID()%>"><input type="button" class="btn btn-primary" value="View"></a></td>
 </tr>
-<%}%>
+<%}}}}%>
   </table>
 </body>
 
