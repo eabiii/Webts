@@ -57,6 +57,16 @@ public class Ref_MonthlyDues implements Serializable{
         return mDues;
     }
     
+    public void setAmount(double amountApproved)
+    {
+        this.amountApproved=amountApproved;
+    }
+    
+    public double getAmount()
+    {
+        return amountApproved;
+    }
+    
     
     
 }

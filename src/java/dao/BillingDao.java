@@ -130,9 +130,9 @@ public class BillingDao {
         return billing;
         }
         
-        public static ArrayList<Billing>getBillingCondition()throws SQLException
+        public static ArrayList<Object>getBillingCondition()throws SQLException
         {
-            ArrayList<Billing>billing=new ArrayList();
+            ArrayList<Object>billing=new ArrayList();
             Connection connect=dbconnect.getDBConnection();
             String sql="select billing.blocknum, billing.lotnum,billing.description,trxreferences.amount,trxReferences.txnDate\n" +
                         "from trxReferences\n" +
@@ -146,7 +146,7 @@ public class BillingDao {
             PreparedStatement pStmt=connect.prepareCall(sql);
             ResultSet rs=pStmt.executeQuery();
              while (rs.next()){
-                 billing.add(new Billing(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),rs.getDouble(6),rs.getString(7),rs.getString(8)));
+                 billing.add(new Object(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getDate(5)));
                  
              }
              System.out.println("good1");

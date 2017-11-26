@@ -38,7 +38,10 @@ public class MonthlyDues implements Serializable{
         this.mDues=mDues;
     }
     
-        
+    
+
+
+    
     /**
      * This method will set the value of MdID
      * @param mdID 
@@ -46,6 +49,11 @@ public class MonthlyDues implements Serializable{
     
     public void setMdID(int mdID){
         this.mdID=mdID;
+    }
+    
+    public double getAmount()
+    {
+        return amount;
     }
     
     /**

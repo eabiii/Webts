@@ -6,6 +6,7 @@
 package servlet;
 
 import dao.BillingDao;
+import dao.DuesDao;
 import dao.PropertiesDao;
 import dao.TransactionDao;
 import java.io.IOException;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Billing;
 import model.TrxReferences;
 import java.util.Date;
+import model.MonthlyDues;
 import model.Ref_Properties;
 import model.Transaction_Journal;
 /**
@@ -113,12 +115,23 @@ private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"
                 cal.clear(Calendar.MILLISECOND);
                 Date d=cal.getTime();
                 int id=TransactionDao.getMaxTrxID()+1;
-                TrxReferences trx=new TrxReferences(id,totalDue,0,totalDue,d); 
+                TrxReferences trx=new TrxReferences(id,totalDue,0,totalDue,d);
+                
+                
                 Transaction_Journal tj= new Transaction_Journal(TransactionDao.getMaxTJID()+1,d,totalDue,0,"Pending");
                 if(TransactionDao.addTransactionReference(trx)){
                     TransactionDao.addTrxJournal(tj);
                     if(BillingDao.addBillingDetails(billID, trx.getTrxID(),"Pending")){
                 System.out.println("My id is" +id);
+                try{
+                MonthlyDues md=null;
+                for(MonthlyDues m: DuesDao.md())
+                {
+                    
+                }
+                }catch(Exception e){
+                    
+                }
                 request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
                     }
 
