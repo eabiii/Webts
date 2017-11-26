@@ -34,9 +34,9 @@ public class Billing implements Serializable{
      * @param billingID unique ID
      * @param blockNum  BlockNum from Ref_Properties
      * @param lotNum    LotNum from Ref_Properties
-     * @param precedentBilling
-     * @param totalDue
-     * @param totalPaid 
+     * @param precedentBilling previous bill
+     * @param totalDue total amount
+     * @param totalPaid total paid
      */
     public Billing(int billingID, int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid)
     {
@@ -49,14 +49,14 @@ public class Billing implements Serializable{
     }
     /**
      * Second Constructor for the model
-     * @param billingID
-     * @param blockNum
-     * @param lotNum
-     * @param precedentBilling
-     * @param totalDue
-     * @param totalPaid
-     * @param desc
-     * @param status 
+     * @param billingID unique ID
+     * @param blockNum  BlockNum from Ref_Properties
+     * @param lotNum    LotNum from Ref_Properties
+     * @param precedentBilling previous bill
+     * @param totalDue total amount
+     * @param totalPaid total paid
+     * @param desc description of payment
+     * @param status status of payment(PAID,PENDING,OVERDUE)
      */
     public Billing(int billingID, int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid,String desc,String status)
     {
@@ -72,11 +72,11 @@ public class Billing implements Serializable{
     
     /**
      * Third Constructor for the model
-     * @param blockNum
-     * @param lotNum
-     * @param precedentBilling
-     * @param totalDue
-     * @param totalPaid 
+     * @param blockNum  BlockNum from Ref_Properties
+     * @param lotNum    LotNum from Ref_Properties
+     * @param precedentBilling previous bill
+     * @param totalDue total amount
+     * @param totalPaid total paid
      */
     public Billing(int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid)
     {

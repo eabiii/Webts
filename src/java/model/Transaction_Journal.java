@@ -22,10 +22,10 @@ public class Transaction_Journal implements Serializable{
     
     /**
      * Constructor for the Transaction_Journal Model
-     * @param journalID
-     * @param trxDate
-     * @param trxAmt
-     * @param trxAmtPaid 
+     * @param journalID unique id
+     * @param trxDate Date
+     * @param trxAmt total amount
+     * @param trxAmtPaid total amount paid
      */
     public Transaction_Journal(int journalID, Date trxDate, double trxAmt, double trxAmtPaid,String status){
         this.journalID=journalID;

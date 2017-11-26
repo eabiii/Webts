@@ -22,10 +22,10 @@ public class HouseMonthlyDues implements Serializable{
     /**
      * Constructor for the HouseMonthlyDues Model
      * 
-     * @param blockNum
-     * @param lotNum
-     * @param mdID
-     * @param trxID 
+     * @param blockNum block number
+     * @param lotNum lot number
+     * @param mdID monthly dues id
+     * @param trxID transaction id
      */
     
     public HouseMonthlyDues(Ref_Properties blockNum,Ref_Properties lotNum,MonthlyDues mdID,TrxReferences trxID)

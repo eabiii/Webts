@@ -25,11 +25,11 @@ public class TrxReferences implements Serializable{
     
     /**
      * Constructor for the TrxReferences Model
-     * @param trxID
-     * @param amount
-     * @param interest
-     * @param totalAmount
-     * @param trxDate 
+     * @param trxID unique id
+     * @param amount amount
+     * @param interest interest
+     * @param totalAmount amount +interest
+     * @param trxDate Date of Transaction
      */
     public TrxReferences(int trxID,double amount, double interest, double totalAmount, Date trxDate){
         this.trxID=trxID;

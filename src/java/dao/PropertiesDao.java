@@ -8,7 +8,10 @@ import java.sql.*;
 import model.*;
 
 public class PropertiesDao {
-    
+    /**
+     * This method gets all the values of the Ref_Properties table
+     * @return ArrayList of Ref_Properties
+     */
     
     public static ArrayList<Ref_Properties>getRef_Properties()
     {

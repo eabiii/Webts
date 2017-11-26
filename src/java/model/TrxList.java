@@ -23,9 +23,9 @@ public class TrxList implements Serializable{
     
     /**
      * Constructor for the TrxList Model
-     * @param journalID
-     * @param trxID
-     * @param amountPaid 
+     * @param journalID journal id from transaction journal table
+     * @param trxID trxID from trxReference table
+     * @param amountPaid amount paid
      */
     public TrxList(int journalID,int trxID,double amountPaid,String status)
     {

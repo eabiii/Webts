@@ -14,7 +14,11 @@ import java.sql.*;
 import model.*;
 public class TransactionDao {
     
-    
+    /**
+     * This method updates the transaction reference table
+     * @param tx Transaction reference
+     * @return true (Success)
+     */
    public static boolean updateTransactionReference( TrxReferences tx )
     {
         boolean boo=false;
@@ -73,7 +77,11 @@ public class TransactionDao {
             }
             return boo;
     }
-    
+    /**
+     * This method adds to the TrxList table
+     * @param tl
+     * @return true(Success)
+     */
     public static boolean addTrxList(TrxList tl)
     {
         boolean boo=false;
@@ -104,7 +112,7 @@ public class TransactionDao {
     
     /**
      * This method will add a transaction journal
-     * @param tj
+     * @param tj Transaction Journal
      * @return 
      */
     public static boolean addTrxJournal(Transaction_Journal tj)
@@ -506,7 +514,7 @@ public class TransactionDao {
             PreparedStatement pStmt=connect.prepareCall(sql);
             ResultSet rs=pStmt.executeQuery();
              while (rs.next()){
-                 p.add(new PaymentDetails(rs.getInt(1),rs.getInt(2),rs.getInt(3)));
+                 p.add(new PaymentDetails(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4)));
                  
              }
              System.out.println("good1");

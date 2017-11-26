@@ -21,9 +21,9 @@ public class PaymentDetails implements Serializable {
     public PaymentDetails(){}
     /**
      * Constructor for the PaymentDetails Model
-     * @param billingID
-     * @param journalID
-     * @param trxID 
+     * @param billingID billing id from billing table
+     * @param journalID journal id from trxList
+     * @param trxID trxID from trxList
      */
     public PaymentDetails(int billingID, int journalID,int trxID,String status)
     {

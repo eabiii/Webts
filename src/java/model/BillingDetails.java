@@ -23,8 +23,8 @@ public class BillingDetails implements Serializable{
     public BillingDetails(){}
     /**
      * Contructor for the Billing Details
-     * @param billingID
-     * @param trxID 
+     * @param billingID billing id
+     * @param trxID transaction id
      */
     public BillingDetails(int billingID, int trxID){
         this.billingID=billingID;
@@ -74,15 +74,19 @@ public class BillingDetails implements Serializable{
     public int getTrxID(){
         return trxID;
     }
+    /**
+     * Sets Status
+     * @param status 
+     */
     
     public void setStatus(String status){
         this.status=status;
     }
     
     /**
-     * This method returns trxID
+     * Gets Status
      * 
-     * @return trxID
+     * @return status
      */
     
     public String getStatus(){

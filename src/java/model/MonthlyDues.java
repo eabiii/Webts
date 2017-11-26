@@ -16,20 +16,20 @@ public class MonthlyDues implements Serializable{
     public int month;
     public int year;
     public double amount;
-    protected Ref_MonthlyDues mDues;
+    protected int mDues;
     
     public MonthlyDues(){}
     /**
      * Constructor for the MonthlyDues Model
      * 
-     * @param mdID
-     * @param month
-     * @param year
-     * @param amount
-     * @param mDues 
+     * @param mdID unique id
+     * @param month month
+     * @param year year
+     * @param amount amount of dues
+     * @param mDues id
      */
     
-    public MonthlyDues(int mdID, int month, int year, double amount, Ref_MonthlyDues mDues)
+    public MonthlyDues(int mdID, int month, int year, double amount, int mDues)
     {
         this.mdID=mdID;
         this.month=month;

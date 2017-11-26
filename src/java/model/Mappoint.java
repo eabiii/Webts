@@ -27,15 +27,15 @@ public class Mappoint {
     public Mappoint(){}
     /**
      * Constructor for the Mappoint Model
-     * @param mappointID
-     * @param mappointcategoryID
-     * @param xAxis
-     * @param yAxis
-     * @param title
-     * @param description
-     * @param userID
-     * @param createDate
-     * @param removed 
+     * @param mappointID unique id
+     * @param mappointcategoryID unique id
+     * @param xAxis xAxis
+     * @param yAxis yAxis
+     * @param title title
+     * @param description description
+     * @param userID user's id
+     * @param createDate date created
+     * @param removed  removed
      */
     
     public Mappoint(int mappointID, Ref_MappointCategory mappointcategoryID, String xAxis, String yAxis, String title,String description, String userID, Date createDate, boolean removed)

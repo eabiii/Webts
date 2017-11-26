@@ -93,8 +93,8 @@ public class BillingDao {
         }
         
         /**
-         * 
-         * @return
+         * This method gets all the values from the Billing Table
+         * @return ArrayList Billing
          * @throws SQLException 
          */
         
@@ -173,7 +173,7 @@ public class BillingDao {
             return bID;
         }
         /**
-         * Add a new bill to the database
+         * Add a new bill to the database (Called when bill is to be added for the first time)
          * @param b
          * @return boo wherein it must be true
          */
@@ -217,6 +217,11 @@ public class BillingDao {
             return boo;
         }
         
+        /**
+         * Add a new bill to the database (Called when there is an existing bill of the same block and lot number)
+         * @param b
+         * @return 
+         */
         public static boolean addNewBillPB(Billing b)
         {
             boolean boo=false;
@@ -292,7 +297,14 @@ public class BillingDao {
             
             return boo;
         }
-        
+        /**
+         * This method adds a payment detail to the paymentdetail table
+         * @param b billing id
+         * @param j journal id
+         * @param t transaction id
+         * @param status Status of payment
+         * @return true(Success in adding)
+         */
         public static boolean addPaymentDetails(int b, int j,int t,String status)
         {
         
@@ -415,6 +427,13 @@ public class BillingDao {
                                  System.out.println("The id "+bID);
             return bID;
     }
+        
+        /**
+         * This method gets the maximum billing id to be used as the precedent bill
+         * @param block block number
+         * @param lot lot number
+         * @return Maximum billing id -1
+         */
         public static int getPrecedentBill(int block, int lot)
         {
             int b=-1;
