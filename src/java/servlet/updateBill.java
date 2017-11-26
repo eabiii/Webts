@@ -6,13 +6,20 @@
 package servlet;
 
 import dao.BillingDao;
+import dao.TransactionDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.BillingDetails;
+import model.PaymentDetails;
+import model.Transaction_Journal;
+import model.TrxList;
 
 /**
  *
@@ -64,13 +71,38 @@ public class updateBill extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         int billID=Integer.parseInt(request.getParameter("billId"));
+        int trxID=Integer.parseInt(request.getParameter("trxId"));
         String status=request.getParameter("status");
+        double amount=Double.parseDouble(request.getParameter("amount")); 
         double interest=Double.parseDouble(request.getParameter("interest")); 
         double total=Double.parseDouble(request.getParameter("totalAmount")); 
-        
-        if(BillingDao.updateBill(billID, total, interest, status))
+        BillingDetails bi=null;
+        Calendar cal = Calendar.getInstance();
+                cal.clear(Calendar.HOUR_OF_DAY);
+                cal.clear(Calendar.AM_PM);
+                cal.clear(Calendar.MINUTE);
+                cal.clear(Calendar.SECOND);
+                cal.clear(Calendar.MILLISECOND);
+                Date d=cal.getTime();
+        if(status=="Pending")
         {
-           request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
+            
+        }
+        else if(BillingDao.updateBill(billID, total, interest, status))
+        {
+            BillingDao.updateDetails(status, billID, trxID);
+            Transaction_Journal tj=new Transaction_Journal(TransactionDao.getMaxTJID()+1,d,total,total,status);
+            TransactionDao.addTrxJournal(tj);
+            TrxList tl=new TrxList(tj.getJournalID(),trxID,total,status);
+            TransactionDao.addTrxList(tl);
+            PaymentDetails pd=new PaymentDetails(billID,tj.getJournalID(),trxID,status);
+            BillingDao.addPaymentDetails(billID, tj.getJournalID(), trxID, status);
+            if(TransactionDao.updateTransactionReference(trxID, total, interest))
+            {
+             request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
+
+            }
+            
 
         }
         

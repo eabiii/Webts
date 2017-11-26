@@ -23,9 +23,6 @@ th, td {
 
 tr:hover{background-color:#f2f3f3}
 </style>
-<br>
-<br>
-<br>
 <% if(msg != null){ %>
 <div class="row">
 	<div class="col-lg-12">
@@ -35,9 +32,19 @@ tr:hover{background-color:#f2f3f3}
 	</div>
 </div><!-- /.row -->
 <% } %>
-<center><h1>View Bill User!</h1></center>
-
-    
+<div style="margin-left:30%;padding:1px 16px;height:500px;">
+<h1>View Bill User!</h1>
+  
+<form action="updateBill" method="post">
+<select name="status">
+        <option value="Paid">Paid
+        <option value="Paid">Paid
+        <option value="Overdue">Overdue
+    </select>
+     <input type="submit" id="addb" value="Add Bill">
+ 
+</form>
+</div>
     <script>
         function filters()
         {
@@ -54,7 +61,7 @@ tr:hover{background-color:#f2f3f3}
         }
         
     </script>
-    <div>
+   
     <table>
   <tr>
    <th><center>Block Number</th>
@@ -76,7 +83,6 @@ tr:hover{background-color:#f2f3f3}
 </tr>
 <%}%>
   </table>
-</div>
 </body>
 
 <script type="text/javascript">

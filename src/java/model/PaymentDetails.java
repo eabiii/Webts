@@ -16,6 +16,7 @@ public class PaymentDetails implements Serializable {
     protected int billingID;
     protected int journalID;
     protected int trxID;
+    public String status;
     
     public PaymentDetails(){}
     /**
@@ -24,11 +25,12 @@ public class PaymentDetails implements Serializable {
      * @param journalID
      * @param trxID 
      */
-    public PaymentDetails(int billingID, int journalID,int trxID)
+    public PaymentDetails(int billingID, int journalID,int trxID,String status)
     {
         this.billingID=billingID;
         this.journalID=journalID;
         this.trxID=trxID;
+        this.status=status;
     }
     /**
      * This method will set the value of billingID
@@ -81,7 +83,23 @@ public class PaymentDetails implements Serializable {
     {
         return trxID;
     }
+    /**
+      * Sets status
+      * @param status 
+      */
     
+     public void setStatus(String status)
+     {
+         this.status=status;
+     }
+     /**
+      * Returns status
+      * @return status
+      */
+     public String getStatus()
+     {
+         return status;
+     }
     
     
 }

@@ -6,6 +6,7 @@
 package servlet;
 
 import dao.BillingDao;
+import dao.PropertiesDao;
 import dao.TransactionDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.Billing;
 import model.TrxReferences;
 import java.util.Date;
+import model.Ref_Properties;
+import model.Transaction_Journal;
 /**
  *
  * @author eabiii
@@ -74,7 +77,7 @@ private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"
             throws ServletException, IOException {
         processRequest(request, response);
         //int billID=Integer.parseInt(request.getParameter("billID"));
-        int billID=6;
+        int billID=BillingDao.getMaxID()+1;
         int blockNum=Integer.parseInt(request.getParameter("blockNum"));
         int lotNum=Integer.parseInt(request.getParameter("lotNum"));
        // double amount=Double.parseDouble(request.getParameter("amt"));
@@ -83,29 +86,92 @@ private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"
         double totalDue=Double.parseDouble(request.getParameter("totalDue"));
         String desc=request.getParameter("desc");
         System.out.println("My desc is" +desc);
-           
+           boolean test=false;
          //   request.setAttribute("msg", "Total Paid not equal to Total Amount");
          // request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
 
-        
-        Billing bill=new Billing(billID,blockNum,lotNum,billID,totalDue,0,desc,"Pending");
-        if(BillingDao.addNewBill(bill))
+        for(Ref_Properties p: PropertiesDao.getRef_Properties())
         {
-            /*
-            Calendar cal = Calendar.getInstance();
-            cal.clear(Calendar.HOUR_OF_DAY);
-            cal.clear(Calendar.AM_PM);
-            cal.clear(Calendar.MINUTE);
-            cal.clear(Calendar.SECOND);
-            cal.clear(Calendar.MILLISECOND);
-            Date d=cal.getTime();
-            int id=TransactionDao.getMaxTrxID()+1;
-            TrxReferences trx=new TrxReferences(id,amount,interest,totalDue,d); 
-            */
-          //  if(TransactionDao.addTransactionReference(trx)){
-            //System.out.println("My id is" +id);
-            request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
-           // }
+            if(p.getBlockNum()==blockNum && p.getLotNum()==lotNum)
+            {
+                test=true;
+            }
+        }
+        int pb=BillingDao.getPrecedentBill(blockNum, lotNum);
+        
+        if(test==true){
+            if (pb==-1){
+                Billing bill=new Billing(billID,blockNum,lotNum,billID,totalDue,0,desc,"Pending");
+            if(BillingDao.addNewBill(bill))
+            {
+
+                Calendar cal = Calendar.getInstance();
+                cal.clear(Calendar.HOUR_OF_DAY);
+                cal.clear(Calendar.AM_PM);
+                cal.clear(Calendar.MINUTE);
+                cal.clear(Calendar.SECOND);
+                cal.clear(Calendar.MILLISECOND);
+                Date d=cal.getTime();
+                int id=TransactionDao.getMaxTrxID()+1;
+                TrxReferences trx=new TrxReferences(id,totalDue,0,totalDue,d); 
+                Transaction_Journal tj= new Transaction_Journal(TransactionDao.getMaxTJID()+1,d,totalDue,0,"Pending");
+                if(TransactionDao.addTransactionReference(trx)){
+                    TransactionDao.addTrxJournal(tj);
+                    if(BillingDao.addBillingDetails(billID, trx.getTrxID(),"Pending")){
+                System.out.println("My id is" +id);
+                request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
+                    }
+
+                    }
+                else
+                    {
+                        request.setAttribute("msg", "Block Number or Lot Number Does Not Exist!");
+                         request.getRequestDispatcher("FA_BillCo_AddBill.jsp").forward(request, response);
+
+                    }
+            }
+            
+        }
+            else
+            {
+                    Billing bill=new Billing(billID,blockNum,lotNum,pb,totalDue,0,desc,"Pending");
+            if(BillingDao.addNewBillPB(bill))
+            {
+
+                Calendar cal = Calendar.getInstance();
+                cal.clear(Calendar.HOUR_OF_DAY);
+                cal.clear(Calendar.AM_PM);
+                cal.clear(Calendar.MINUTE);
+                cal.clear(Calendar.SECOND);
+                cal.clear(Calendar.MILLISECOND);
+                Date d=cal.getTime();
+                int id=TransactionDao.getMaxTrxID()+1;
+                TrxReferences trx=new TrxReferences(id,totalDue,0,totalDue,d); 
+                Transaction_Journal tj= new Transaction_Journal(TransactionDao.getMaxTJID()+1,d,totalDue,0,"Pending");
+                if(TransactionDao.addTransactionReference(trx)){
+                    TransactionDao.addTrxJournal(tj);
+                    if(BillingDao.addBillingDetails(billID, trx.getTrxID(),"Pending")){
+                System.out.println("My id is" +id);
+                request.getRequestDispatcher("FA_BillCo_DefaultPage.jsp").forward(request, response);
+                    }
+
+                    }
+                else
+                    {
+                        request.setAttribute("msg", "Block Number or Lot Number Does Not Exist!");
+                         request.getRequestDispatcher("FA_BillCo_AddBill.jsp").forward(request, response);
+
+                    }
+            }
+            
+            }
+            
+        }
+        else
+        {
+        request.setAttribute("msg", "Block Number or Lot Number Does Not Exist!");
+                         request.getRequestDispatcher("FA_BillCo_AddBill.jsp").forward(request, response);
+
         }
         
     }

@@ -15,9 +15,9 @@ public class Ref_Properties implements Serializable{
     private int blockNum;
     private int lotNum;
     public int endLotNum;
-    protected Ref_Street street;
-    protected Ref_PropertyStatus propertyStatusID;
-    protected Mappoint mappointID;
+    protected String street;
+    protected int propertyStatusID;
+    protected int mappointID;
     
     public Ref_Properties(){}
     
@@ -30,7 +30,7 @@ public class Ref_Properties implements Serializable{
      * @param propertyStatusID
      * @param mappointID 
      */
-    public Ref_Properties(int blockNum, int lotNum, int endLotNum, Ref_Street street, Ref_PropertyStatus propertyStatusID, Mappoint mappointID)
+    public Ref_Properties(int blockNum, int lotNum, int endLotNum, String street, int propertyStatusID, int mappointID)
     {
         this.blockNum=blockNum;
         this.lotNum=lotNum;
@@ -77,7 +77,7 @@ public class Ref_Properties implements Serializable{
      * This method will set the value of street
      * @param street 
      */
-    public void setStreet(Ref_Street street){
+    public void setStreet(String street){
         this.street=street;
     }
     
@@ -85,7 +85,7 @@ public class Ref_Properties implements Serializable{
      * This method will get the value of street
      * @return 
      */
-    public Ref_Street getStreet(){
+    public String getStreet(){
         return street;
     }
     
@@ -93,7 +93,7 @@ public class Ref_Properties implements Serializable{
      * This method will set the value of propertyStatusID
      * @param propertyStatusID 
      */
-    public void setPropertyStatusID(Ref_PropertyStatus propertyStatusID){
+    public void setPropertyStatusID(int propertyStatusID){
         this.propertyStatusID=propertyStatusID;
     }
     
@@ -101,7 +101,7 @@ public class Ref_Properties implements Serializable{
      * This method will return the value of propertyStatusID
      * @return 
      */
-    public Ref_PropertyStatus getPropertyStatusID(){
+    public int getPropertyStatusID(){
         return propertyStatusID;
     }
     
@@ -109,7 +109,7 @@ public class Ref_Properties implements Serializable{
      * This method will set the value of mappoint
      * @param mappointID 
      */
-    public void setMappointID(Mappoint mappointID){
+    public void setMappointID(int mappointID){
         this.mappointID=mappointID;
     }
     /**
@@ -117,7 +117,7 @@ public class Ref_Properties implements Serializable{
      * @return 
      */
     
-    public Mappoint getMappointID(){
+    public int getMappointID(){
         return mappointID;
     }
 }

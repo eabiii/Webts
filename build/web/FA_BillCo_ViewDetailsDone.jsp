@@ -7,13 +7,7 @@
 <%
     Billing bill=(Billing)request.getAttribute("bill");
     TrxReferences p=(TrxReferences)request.getAttribute("pay");
-String string="hidden";
-boolean boo=false;
-if(bill.getStatus().equalsIgnoreCase("Pending"))
-{
-    string="submit";
-    boo=true;
-}
+
 %>
 <!DOCTYPE html>
 <%@include file="header.jsp" %>
@@ -31,7 +25,7 @@ th, td {
 
 tr:hover{background-color:#f2f3f3}
 </style>
-  <div style="margin-left:30%;padding:1px 16px;height:500px;">
+  <div  style="margin-left:30%;padding:1px 16px;height:500px;">
      
 <br>
 <br>
@@ -47,26 +41,17 @@ tr:hover{background-color:#f2f3f3}
       
 	<p>Description of Payment:<%=bill.getDesc()%></p>
 	<p>Amount: </p>
-        <input type="number" step="any" min="0" id="amt" name="amount" value="<%=bill.getTotalDue()%>" placeholder="<%=bill.getTotalDue()%>" onchange="filters()" readonly >
+        <input type="number" step="any" min="0" id="amt" name="amount" value="<%=bill.getTotalDue()%>" placeholder="<%=bill.getTotalPaid()%>" onchange="filters()" readonly >
 
-        <p>Interest
-            <%=p.getInterest()%>
-        </p>
-        <input type="number" step="any" min="0" id="inter" value="<%=p.getInterest()%>" name="interest" placeholder="<%=p.getInterest()%>" onchange="filters()" required >
+	<p>Interest</p>
+        <input type="number" step="any" min="0" id="inter" value="<%=p.getInterest()%>" name="interest" placeholder="<%=p.getInterest()%>" onchange="filters()" readonly >
 
 	<p>Current Status:<%=bill.getStatus()%></p>
-        
-<select <%=string%> name="status">
-        <option value="Paid">Paid
-        <option value="Overdue">Overdue
-    </select>
+
     
 	<p>Total Amount: </p>
         <input type="hidden" name="billId" value="<%=bill.getID()%>">
-        <input type="hidden" name="trxId" value="<%=p.getTrxID()%>">
                 <input type="number" min="0" id="totalamt" name="totalAmount" placeholder="0" autofocus readonly>
-                <input type="<%=string%>" id="addb" value="Add Bill">
-                <a href="FA_BillCo_ViewBill.jsp"><input type="button" name="Go Back" value="Go Back"></a>
   </form>
  <script>
         function filters()
@@ -82,6 +67,8 @@ tr:hover{background-color:#f2f3f3}
             
             
         }
+        
+      
         
     </script>
       </div>	

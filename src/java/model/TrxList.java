@@ -14,9 +14,10 @@ import java.io.*;
 import java.util.*;
 public class TrxList implements Serializable{
     
-    protected Transaction_Journal journalID;
-    protected TrxReferences trxID;
+    protected int journalID;
+    protected int trxID;
     public double amountpaid;
+    public String status;
     
     public TrxList(){}
     
@@ -26,11 +27,12 @@ public class TrxList implements Serializable{
      * @param trxID
      * @param amountPaid 
      */
-    public TrxList(Transaction_Journal journalID,TrxReferences trxID,double amountPaid)
+    public TrxList(int journalID,int trxID,double amountPaid,String status)
     {
         this.journalID=journalID;
         this.trxID=trxID;
         this.amountpaid=amountPaid;
+        this.status=status;
         
     }
     /**
@@ -38,7 +40,7 @@ public class TrxList implements Serializable{
      * @param journalID 
      */
     
-    public void setJournalID(Transaction_Journal journalID){
+    public void setJournalID(int journalID){
         this.journalID=journalID;
     }
     
@@ -46,7 +48,7 @@ public class TrxList implements Serializable{
      * This method will return the value of journalID
      * @return 
      */
-    public Transaction_Journal getJournalID(){
+    public int getJournalID(){
         return journalID;
     }
     
@@ -54,7 +56,7 @@ public class TrxList implements Serializable{
      * This method will set the value of trxID
      * @param trxID 
      */
-    public void setTrxID(TrxReferences trxID){
+    public void setTrxID(int trxID){
         this.trxID=trxID;
     }
     
@@ -62,8 +64,40 @@ public class TrxList implements Serializable{
      * This method will return the value of trxID
      * @return 
      */
-    public TrxReferences getTrxID(){
+    public int getTrxID(){
         return trxID;
+    }
+    /**
+     * This method will set the value of amountpaid
+     * @param amountpaid 
+     */
+    public void setAmount(double amountpaid)
+    {
+        this.amountpaid=amountpaid;
+    }
+    /**
+     * This method will return the value of amountpaid
+     * @return amountpaid
+     */
+    public double getAmount()
+    {
+        return amountpaid;
+    }
+    /**
+     * This method will set the value of status
+     * @param status 
+     */
+    public void setStatus(String status)
+    {
+        this.status=status;
+    }
+    /**
+     * This method will set the value of status
+     * @return status
+     */
+    public String getStatus()
+    {
+        return status;
     }
     
 }

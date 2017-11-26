@@ -7,7 +7,13 @@
 <%
     Billing bill=(Billing)request.getAttribute("bill");
     TrxReferences p=(TrxReferences)request.getAttribute("pay");
-
+String string="hidden";
+boolean boo=false;
+if(bill.getStatus().equalsIgnoreCase("Pending"))
+{
+    string="submit";
+    boo=true;
+}
 %>
 <!DOCTYPE html>
 <%@include file="header.jsp" %>
@@ -26,47 +32,41 @@ th, td {
 tr:hover{background-color:#f2f3f3}
 </style>
   <div style="margin-left:30%;padding:1px 16px;height:500px;">
+     
 <br>
 <br>
 <br>
+ <div style="padding:1px 16px;height:500px;">
   <h1>Billing Details</h1>
   <form action="updateBill" method="post">
       
-      <div class="form-group">
-	<label>Block Number:<%=bill.getBlockNum()%></label>
+	<p>Block Number:<%=bill.getBlockNum()%></p>
 
-      </div>
-      <div class="form-group">
-	<label>Lot Number:<%=bill.getLotNum()%></label>
-      </div>
-      <div class="form-group">
-	<label>Description of Payment:<%=bill.getDesc()%></label>
-      </div>
-      <div class="form-group">
-	<label>Amount: </label>
+   
+	<p>Lot Number:<%=bill.getLotNum()%></p>
+      
+	<p>Description of Payment:<%=bill.getDesc()%></p>
+	<p>Amount: </p>
         <input type="number" step="any" min="0" id="amt" name="amount" value="<%=bill.getTotalDue()%>" placeholder="<%=bill.getTotalDue()%>" onchange="filters()" readonly >
 
-      </div>
-      <div class="form-group">
-	<label>Interest</label>
-                <input type="number" step="any" min="0" id="inter" name="interest" placeholder="totalDue" onchange="filters()" required >
+        <p>Interest
+            <%=p.getInterest()%>
+        </p>
+        <input type="number" step="any" min="0" id="inter" value="<%=p.getInterest()%>" name="interest" placeholder="<%=p.getInterest()%>" onchange="filters()" required >
 
-      </div>
-        <div class="form-group">
-	<label>Current Status:<%=bill.getStatus()%></label>
-<select name="status">
-        <option value="Pending">Pending
+	<p>Current Status:<%=bill.getStatus()%></p>
+        
+<select <%=string%> name="status">
         <option value="Paid">Paid
         <option value="Overdue">Overdue
     </select>
-      </div>
     
-       <div class="form-group">
-	<label>Total Amount: </label>
+	<p>Total Amount: </p>
         <input type="hidden" name="billId" value="<%=bill.getID()%>">
+        <input type="hidden" name="trxId" value="<%=p.getTrxID()%>">
                 <input type="number" min="0" id="totalamt" name="totalAmount" placeholder="0" autofocus readonly>
- <input type="submit" id="addb" value="Add Bill">
-      </div>
+                <input type="<%=string%>" id="addb" value="Add Bill">
+                <a href="FA_BillCo_ViewBill.jsp"><input type="button" name="Go Back" value="Go Back"></a>
   </form>
  <script>
         function filters()
@@ -84,35 +84,10 @@ tr:hover{background-color:#f2f3f3}
         }
         
     </script>
-		
+      </div>	
   
     </div>
-    <table>
-  <tr>
-   <th><center>Block Number</th>
-      <th><center>Lot Number</th>    
-   <th><center>Description</th>
-   <th><center>Amount</th>
-   <th><center></th>
 
-  </tr>
-  <tr>
-<%      %>
-<td><center><%=bill.getBlockNum()%></td>
-<td><center><%=bill.getLotNum()%></td>
-<td><center><%=bill.totalDue%></td>
-<td><center><%=bill.totalPaid%></td>
-<td><center><a href="FA_BillCo_ViewDetails?id=<%=bill.getID()%>"><input type="button" class="btn btn-primary" value="View"></a></td>
-</tr>
-<%%>
-<tr>
-   <td><center><%=bill.getBlockNum()%></td>
-<td><center><%=p.getTrxID()%></td>
-<td><center><%=p.getDate()%></td>
-<td><center><%=p.getInterest()%></td> 
-    
-</tr>
-  </table>
 <%@include file="footer.jsp" %>
 </body>
 

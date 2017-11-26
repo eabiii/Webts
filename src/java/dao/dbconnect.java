@@ -12,10 +12,13 @@ import java.util.ArrayList;
 public class dbconnect {
     
     private static final String DRIVER_NAME="com.mysql.jdbc.Driver";
-    private static final String JDBC_URL="jdbc:mysql://localhost:3306/SWENGG";
+    private static final String JDBC_URL="jdbc:mysql://localhost:3306/hoa";
     private static final String DB_USER="root";
     private static final String DB_PASSWORD="fmlygy12";
-    
+    /**
+     * This method establishes a connection from the SWENGG table
+     * @return 
+     */
     public static Connection getDBConnection(){
         Connection connect=null;
         try{

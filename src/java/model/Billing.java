@@ -31,9 +31,9 @@ public class Billing implements Serializable{
     /**
      * Main Constructor for the model
      * 
-     * @param billingID
-     * @param blockNum
-     * @param lotNum
+     * @param billingID unique ID
+     * @param blockNum  BlockNum from Ref_Properties
+     * @param lotNum    LotNum from Ref_Properties
      * @param precedentBilling
      * @param totalDue
      * @param totalPaid 
@@ -47,7 +47,17 @@ public class Billing implements Serializable{
         this.totalDue=totalDue;
         this.totalPaid=totalPaid;             
     }
-    
+    /**
+     * Second Constructor for the model
+     * @param billingID
+     * @param blockNum
+     * @param lotNum
+     * @param precedentBilling
+     * @param totalDue
+     * @param totalPaid
+     * @param desc
+     * @param status 
+     */
     public Billing(int billingID, int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid,String desc,String status)
     {
         this.billingID=billingID;
@@ -60,6 +70,14 @@ public class Billing implements Serializable{
         this.status=status;
     }
     
+    /**
+     * Third Constructor for the model
+     * @param blockNum
+     * @param lotNum
+     * @param precedentBilling
+     * @param totalDue
+     * @param totalPaid 
+     */
     public Billing(int blockNum, int lotNum, int precedentBilling,double totalDue,double totalPaid)
     {
         this.blockNum=blockNum;
@@ -89,22 +107,51 @@ public class Billing implements Serializable{
         return billingID;
     }
     
-    
+    /**
+     * Sets totalDue
+     * @param totalDue 
+     */
     public void setTotalDue(double totalDue)
     {
         this.totalDue=totalDue;
     }
-    
+    /**
+     * Returns totaldue
+     * @return totalDue
+     */
     public double getTotalDue()
     {
             return totalDue;
     }
+    /**
+     * Sets PrecedentBilling
+     * @param precedentBilling 
+     */
+    public void setPrecedentBilling(int precedentBilling)
+    {
+        this.precedentBilling=precedentBilling;
+    }
+    /**
+     * Gets Precedent Billing
+     * @return 
+     */
+    public int getPrecedentBilling(){
+        return precedentBilling;
+    }
+    /**
+     * sets totalpaid
+     * @param totalPaid 
+     */
     
     public void setTotalPaid(double totalPaid)
     {
         this.totalPaid=totalPaid;
     }
     
+    /**
+     * Returns totalpaid
+     * @return totalPaid
+     */
     public double getTotalPaid()
     {
             return totalPaid;
@@ -147,21 +194,37 @@ public class Billing implements Serializable{
     {
         return lotNum;
     }
+    
+    /**
+     * Sets Description
+     * @param desc 
+     */
      public void setDesc(String desc)
      {
          this.desc=desc;
      }
      
+     /**
+      * Return description
+      * @return desc
+      */
      public String getDesc()
      {
          return desc;
      }
+     /**
+      * Sets status
+      * @param status 
+      */
     
      public void setStatus(String status)
      {
          this.status=status;
      }
-     
+     /**
+      * Returns status
+      * @return status
+      */
      public String getStatus()
      {
          return status;

@@ -4,33 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Applications/tomcat/Webts/web/header.jsp</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Transaction_Journal.java</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_Documents_Checks.jsp</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Ref_Street.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Ref_MappointCategory.java</file>
-            <file>file:/Applications/tomcat/Webts/web/footer.jsp</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Ref_Properties.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/HouseMonthlyDues.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/TrxList.java</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_NewHomeOwners.jsp</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/MonthlyDues.java</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_Documents_Vouchers.jsp</file>
-            <file>file:/Applications/tomcat/Webts/src/java/dao/StudentDAO.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Billing.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/dao/BillingDao.java</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_BillHomeOwners.jsp</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Ref_MonthlyDues.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/dao/Database.java</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_BillHomeOwners_ViewDetails.jsp</file>
+            <file>file:/Applications/tomcat/Webts/src/java/servlet/updateBill.java</file>
+            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_ViewBill.jsp</file>
             <file>file:/Applications/tomcat/Webts/src/java/model/BillingDetails.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/TrxReferences.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/servlet/addHomeOwner.java</file>
+            <file>file:/Applications/tomcat/Webts/src/java/servlet/addStudent.java</file>
             <file>file:/Applications/tomcat/Webts/src/java/dao/dbconnect.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Ref_PropertyStatus.java</file>
-            <file>file:/Applications/tomcat/Webts/src/java/model/Mappoint.java</file>
-            <file>file:/Applications/tomcat/Webts/web/inputServlet.html</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_DefaultPage.jsp</file>
-            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_TransactionJournal.jsp</file>
+            <file>file:/Applications/tomcat/Webts/web/FA_BillCo_AddBill.jsp</file>
+            <file>file:/Applications/tomcat/Webts/src/java/model/Billing.java</file>
             <file>file:/Applications/tomcat/Webts/src/java/model/PaymentDetails.java</file>
         </group>
     </open-files>

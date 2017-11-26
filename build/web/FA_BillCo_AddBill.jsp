@@ -2,7 +2,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.BillingDao" %>
-<%@page import="model.Billing,dao.BillingDao,dao.dbconnect,java.util.ArrayList" %>
+<%@page import="servlet.addBills,model.Billing,dao.BillingDao,dao.dbconnect,java.util.ArrayList" %>
 <%
 ArrayList<Billing>bill=BillingDao.getBilling();
 String msg = (String) request.getAttribute("msg");
@@ -59,6 +59,7 @@ tr:hover{background-color:#f2f3f3}
         <input type="number" min="0" step="any" id="pay" name="totalPaid" placeholder="0" autofocus >
        -->
         <input type="submit" id="addb" value="Add Bill">
+        <a href="FA_BillCo_ViewBill.jsp"><input type="button" name="Go Back" value="Go Back"></a>
         </form>
     </div>
     
